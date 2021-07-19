@@ -1,7 +1,9 @@
-<p float="left">
- <img src="https://ichef.bbci.co.uk/news/1632/idt2/idt2/b0824ddd-80ca-425c-b3d4-3ca25ef1d494/image/816" width="45%" height="45%"/ hspace="40">
- <img src="https://i.pinimg.com/originals/4d/e3/0a/4de30ae66ce6ca00459e03df79718854.gif" width="40%" height="40%"/>
- </p>
+
+* AI to predict:
+	- if a prospect will churn, if so, when?
+	- from which group this prospect will belong, and based on that, present potential factors that could mantain/bring the customer to a non-churnable cluster
+ 
+ <img src="https://github.com/FernandoRocha88/WalkthroughProject02/blob/main/WalkthroughProject02%20-%20read%20me%20image.png" width="80%" height="80%"/>
 
 
 ## Variables Meaning
