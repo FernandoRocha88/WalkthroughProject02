@@ -40,7 +40,7 @@ The data set includes information about:
 
 
 ## Business Requirements
-As a Data Analyst from Code Institute Consulting, you are requested by Telco division to provide actionable insights and data driven recommendations a customer. This new customer has substantial agriculture business in Australia and understanding the rainfall level is critical for their farmer's network. Their clients needs to know precisely if it will rain in the next day, so they can plan accordingly how their routine will look like.
+As a Data Analyst from Code Institute Consulting, you are requested by Telco division to provide actionable insights and data driven recommendations to a Telecom corporation. This company has substantial customer base and is interested to manage churn levels and understand how the sales team could better interact with prospects.
 
 * 1 - As a customer I am interested to understand the patterns from my customer base, so I can better manage churn levels.
 * 2 - As a customer I am interested to tell whether or not a given prospect will churn. If so, when? In addition I am interested to from which customer group/cluster this prospect will belong, and based on that, present potential factors that could mantain/bring the prospect to a non-churnable cluster
@@ -67,15 +67,44 @@ As a Data Analyst from Code Institute Consulting, you are requested by Telco div
 
 
 ## ML Business Case
-WeatherClf
-We want a ML model to predict if it will rain tomorrow. It is a supervised model, a 2-class, single-label, classification model: 0 (no), 1 (yes)
-Our ideal outcome is provide to our farmer's network a reliable insight if it will rain or not tomorrow, so they can plan their immediate demand.
+
+### ChurnClf
+* We want a ML model to predict
+
+
+### TenureReg
+* We want a ML model
+
+
+### TelcoCluster
+* We want a ML model
 
 
 
 --
 
-## Dashboard Design
-Streamlit App User Interface
-Page 1: Rainfall prediction
-User Interface with inputs (city an
+## Dashboard Design (Streamlit App User Interface)
+
+
+### Page 1: Customer Base Churn Study
+* answers biz requirement 1
+
+### Page 2: User Inteface
+* User Interface with propect inputs and predictions indicating if the prospect will churn or not, if so when, to which cluster the prospect belongs and a explanation for each cluster profile; so the person who is attending the prospect can suggest a offer that will bring the propect to a non churnable customer
+* Bar plot to indicate churn levels per cluster and line plot to indicate relative churn percentage levels per cluster
+
+
+### Page 3: ChurnClf
+* Evaluation metrics/performance on ChurnClf
+  * For both train and test set: Confusion Matrix and Classification Report
+  * Bias/Variance Tradeoff
+
+### Page 4: TenureReg
+* Evaluation metrics/performance on TenureReg
+  * For both train and test set: R2, RMSE, MSE, MAE
+  * Bias/Variance Tradeoff
+
+### Page 5: TelcoCluster
+* Evaluation metrics/performance on TelcoCluster
+  * 3D Scatter Plot for PCA with 3 components, colored by clusters
+  * Silhouete score
