@@ -40,15 +40,14 @@ The data set includes information about:
 
 
 ## Business Requirements
-As a Data Analyst from CI AgroBusiness division, you are requested by a new Australian customer to provide actionable insights and data driven recommendations on weather information. This new customer has substantial agriculture business in Australia and understanding the rainfall level is critical for their farmer's network. Their clients needs to know precisely if it will rain in the next day, so they can plan accordingly how their routine will look like.
-1 - As a customer I am interested to tell whether or not will rain in the next day in almost 50 Australian cities. In case of rain, I am interested to know the rainfall level.
-2 - As a customer I am interested to cluster rainfall levels for Australian cities/regions
-3 - As a customer I am interested to understand the rainfall seasonality for a given city in the last 5 years.
+As a Data Analyst from Code Institute Consulting, you are requested by Telco division to provide actionable insights and data driven recommendations a customer. This new customer has substantial agriculture business in Australia and understanding the rainfall level is critical for their farmer's network. Their clients needs to know precisely if it will rain in the next day, so they can plan accordingly how their routine will look like.
+1- As a customer I am interested to understand the patterns from my customer base, so I can better manage churn levels.
+2 - As a customer I am interested to tell whether or not a given prospect will churn. If so, when? In addition I am interested to from which customer group/cluster this prospect will belong, and based on that, present potential factors that could mantain/bring the prospect to a non-churnable cluster
+
 
 ## Hypothesis and how to validate?
-some region has more rainfall?
-which region is more difficult to predict
-xxxx
+* sth on churn levels and tenure
+* sth on predict churn, but not tenure
 
 
 ## Rationale to map the business requirements to the Data Visualizations and ML tasks
