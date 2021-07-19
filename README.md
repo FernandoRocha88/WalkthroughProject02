@@ -1,7 +1,7 @@
 
 * AI system to predict:
 	- if a prospect will churn, if so, when?
-	- from which group this prospect will belong, and based on that, present potential factors that could mantain/bring the customer to a non-churnable cluster
+	- from which group this prospect will belong, and based on that, present potential factors that could mantain/bring the prospect to a non-churnable cluster
  
  <img src="https://github.com/FernandoRocha88/WalkthroughProject02/blob/main/WalkthroughProject02%20-%20read%20me%20image.png" width="80%" height="80%"/>
 
@@ -41,8 +41,9 @@ The data set includes information about:
 
 ## Business Requirements
 As a Data Analyst from Code Institute Consulting, you are requested by Telco division to provide actionable insights and data driven recommendations a customer. This new customer has substantial agriculture business in Australia and understanding the rainfall level is critical for their farmer's network. Their clients needs to know precisely if it will rain in the next day, so they can plan accordingly how their routine will look like.
-1- As a customer I am interested to understand the patterns from my customer base, so I can better manage churn levels.
-2 - As a customer I am interested to tell whether or not a given prospect will churn. If so, when? In addition I am interested to from which customer group/cluster this prospect will belong, and based on that, present potential factors that could mantain/bring the prospect to a non-churnable cluster
+
+* 1 - As a customer I am interested to understand the patterns from my customer base, so I can better manage churn levels.
+* 2 - As a customer I am interested to tell whether or not a given prospect will churn. If so, when? In addition I am interested to from which customer group/cluster this prospect will belong, and based on that, present potential factors that could mantain/bring the prospect to a non-churnable cluster
 
 
 ## Hypothesis and how to validate?
@@ -51,9 +52,17 @@ As a Data Analyst from Code Institute Consulting, you are requested by Telco div
 
 
 ## Rationale to map the business requirements to the Data Visualizations and ML tasks
-Business Requirement 1: Classification and Regression
+* **Business Requirement 1**: Data Visualization and Correlation study
+	* We will ...
 
-We build a Classifier (WeatherClf) to predict RainTomorro
+* **Business Requirement 2**:  Classification, Regression, Cluster, Data Analysis
+	* We build a Classifier (ChurnClf) to predict churn levels for a prospect
+	* We will build a Regression Model (TenureReg) to predict tenure level for a prospect that is expected to churn
+	* We will build a Cluster model (TelcoCluster) to predict from which group this prospect will belong
+	* We will assess churn levels per cluster to understand which clusters are "churnable". Based on cluster prediction, we will present potential factors that could mantain/bring the prospect to a non-churnable cluster
+
+
+
 
 
 
