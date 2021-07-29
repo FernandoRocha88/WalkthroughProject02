@@ -50,18 +50,21 @@ As a Data Analyst from Code Institute Consulting, you are requested by Telco div
 
 ## Hypothesis and how to validate?
 * sth on churn levels and tenure
-* sth on predict churn, but not tenure
+* sth on predict churn, tenure
 
 
 ## Rationale to map the business requirements to the Data Visualizations and ML tasks
 * **Business Requirement 1**: Data Visualization and Correlation study
-	* We will ...
+	* We will display a DataFrame for all customer base
+	* We will conduct a correlation and PPS analysis to better understand how the variable are correlated to Churn
+	* We will plot...
+
 
 * **Business Requirement 2**:  Classification, Regression, Cluster, Data Analysis
-	* We build a Classifier (ChurnClf) to predict churn levels for a prospect
-	* We will build a Regression Model (TenureReg) to predict tenure level for a prospect that is expected to churn
-	* We will build a Cluster model (TelcoCluster) to predict from which group this prospect will belong
-	* We will assess churn levels per cluster to understand which clusters are "churnable". Based on cluster prediction, we will present potential factors that could mantain/bring the prospect to a non-churnable cluster
+	* We want to predict if a prospect will churn or not. We want to build a binary classifier
+	* We want to predict tenure level for a prospect that is expected to churn. We want to build a regression model or, depending on the regressor performance, switch the ML task to classification
+	* We want to cluster similar customer, to predict from which cluster a prospect will belong to.
+	* We want to understand clusters profile, so we can present potential options that could mantain or bring the prospect to a non-churnable cluster
 
 
 
@@ -87,24 +90,20 @@ As a Data Analyst from Code Institute Consulting, you are requested by Telco div
 
 ## Dashboard Design (Streamlit App User Interface)
 
-
 ### Page 1: Customer Base Churn Study
 * answers biz requirement 1
 
 ### Page 2: User Inteface
-* User Interface with propect inputs and predictions indicating if the prospect will churn or not, if so when, to which cluster the prospect belongs and a explanation for each cluster profile; so the person who is attending the prospect can suggest a offer that will bring the propect to a non churnable customer
-* Bar plot to indicate churn levels per cluster and line plot to indicate relative churn percentage levels per cluster
-
+* User Interface with prospect inputs and predictions indicating if the prospect will churn or not, if so when, to which cluster the prospect belongs and an indication on which cluster the prospect belong to.
+* In addition, present cluster profile; so the person who is attending the prospect can suggest a offer that will bring the prospect to a non churnable customer
 
 ### Page 3: ChurnClf
 * Evaluation metrics/performance on ChurnClf
   * For both train and test set: Confusion Matrix and Classification Report
-  * Bias/Variance Tradeoff
 
 ### Page 4: TenureReg
 * Evaluation metrics/performance on TenureReg
   * For both train and test set: R2, RMSE, MSE, MAE
-  * Bias/Variance Tradeoff
 
 ### Page 5: TelcoCluster
 * Evaluation metrics/performance on TelcoCluster
