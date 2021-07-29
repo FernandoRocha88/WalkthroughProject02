@@ -43,22 +43,26 @@ def page2_body():
 
 def DrawInputsWidgets(df):
 	import pandas as pd
+	import itertools
 
 	# The widgets inputs are the features used in all pipelines (tenure, churn, cluster)
-	tenure_train_set_columns = load_pkl_file("outputs/ml_pipeline/predict_tenure/X_train_columns.pkl")
-	churn_train_set_columns = load_pkl_file("outputs/ml_pipeline/predict_churn/X_train_columns.pkl")
+	tenure_features = load_pkl_file("outputs/ml_pipeline/predict_tenure/X_train_columns.pkl")
+	churn_features = load_pkl_file("outputs/ml_pipeline/predict_churn/X_train_columns.pkl")
+	cluster_features = load_pkl_file("outputs/ml_pipeline/cluster_analysis/cluster_pipeline_features.pkl")
 	# We combine them only with unique values
-	combined_train_set_cols = list(churn_train_set_columns)
-	combined_train_set_cols.extend(x for x in tenure_train_set_columns if x not in combined_train_set_cols)
-	st.write(combined_train_set_cols)
+	
+	combined_features = itertools.chain(tenure_features, churn_features, cluster_features)
+	# combined_train_set_cols = list(churn_train_set_columns)
+	# combined_train_set_cols.extend(x for x in tenure_train_set_columns if x not in combined_train_set_cols)
+	st.write(combined_features)
 
 	# We know which are the most relevant features for each pipeline
-	tenure_best_feature = load_pkl_file("outputs/ml_pipeline/predict_tenure/best_features.pkl")
-	churn_best_features = load_pkl_file("outputs/ml_pipeline/predict_churn/best_features.pkl")
+	# tenure_best_feature = load_pkl_file("outputs/ml_pipeline/predict_tenure/best_features.pkl")
+	# churn_best_features = load_pkl_file("outputs/ml_pipeline/predict_churn/best_features.pkl")
 	# We combine them only with unique values
-	combined_best_features = list(churn_best_features)
-	combined_best_features.extend(x for x in tenure_best_feature if x not in combined_best_features)
-	st.write(combined_best_features)
+	# combined_best_features = list(churn_best_features)
+	# combined_best_features.extend(x for x in tenure_best_feature if x not in combined_best_features)
+	# st.write(combined_best_features)
 
 
 
@@ -244,6 +248,5 @@ def DrawInputsWidgets(df):
 	# 	index=[0]
 	# 	)
 
-	# return X_live
-	return "X_live"
+	return X_live
 
