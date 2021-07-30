@@ -11,49 +11,33 @@ def page2_body():
 
 
 
-	# inputs
+	# Generte Live Data
 	X_live = DrawInputsWidgets(df)
 
-	######### churn pipleline
+	# load churn pipleline files
 	churn_pipeline_dc_fe = load_pkl_file("outputs/ml_pipeline/predict_churn/clf_pipeline_data_cleaning_feat_eng.pkl")
 	churn_pipeline_model = load_pkl_file("outputs/ml_pipeline/predict_churn/clf_pipeline_model.pkl")
 	churn_features = load_pkl_file("outputs/ml_pipeline/predict_churn/X_train_columns.pkl")
-	# predict
-	# predict_proba
 
-
-	############ tenure pipeline
+	# load tenure pipeline files
 	tenure_pipeline = load_pkl_file("outputs/ml_pipeline/predict_tenure/clf_pipeline.pkl")
-	# tenure_labels_map = load_pkl_file("outputs/ml_pipeline/predict_tenure/LabelsMap.pkl")
+	tenure_labels_map = load_pkl_file("outputs/ml_pipeline/predict_tenure/LabelsMap.pkl")
 	tenure_features = load_pkl_file("outputs/ml_pipeline/predict_tenure/X_train_columns.pkl")
-	# if predict == 1
-	# .predict
-
-	##### cluster pipeline
+	
+	# load cluster pipeline files
 	cluster_pipeline = load_pkl_file("outputs/ml_pipeline/cluster_analysis/cluster_pipeline.pkl")
 	cluster_features = load_pkl_file("outputs/ml_pipeline/cluster_analysis/cluster_pipeline_features.pkl")
 	cluster_profile = pd.read_csv("outputs/ml_pipeline/cluster_analysis/clusters_description.csv")
 
 
-	####
-	X_live_churn = X_live.filter(churn_features)
-	X_live_churn_dc_fe = churn_pipeline_dc_fe.transform(X_live_churn)
-	churn_prediction = churn_pipeline_model.predict(X_live_churn_dc_fe)
-	churn_prediction_proba = churn_pipeline_model.predict_proba(X_live_churn_dc_fe)
-	st.write(churn_features)
-	st.write(churn_prediction_proba)
-	st.write(churn_prediction)
-	st.write("---")
+	# predict on live data
+	churn_prediction = predict_churn(X_live, churn_features,
+									churn_pipeline_dc_fe, churn_pipeline_model)
+	
 
-	if churn_prediction == 1: # 1:
-		X_live_tenure = X_live.filter(tenure_features)
-		# tenure_prediction = tenure_pipeline.predict(X_live_tenure)
-		# tenure_prediction_proba = tenure_pipeline.predict_proba(X_live_tenure)
-		st.write(tenure_pipeline)
-		# st.write(tenure_prediction_proba)
-		# st.write(tenure_prediction)
-		st.write("---")
-
+	if churn_prediction == 1:
+		predict_tenure(X_live, tenure_features, tenure_pipeline, tenure_labels_map)
+		
 
 	X_live_cluster = X_live.filter(cluster_features)
 	cluster_prediction = cluster_pipeline.predict(X_live_cluster)
@@ -70,6 +54,53 @@ def page2_body():
     # show cluster profile
     # show options for each variable in the profile
 
+
+
+
+def predict_churn(X_live, churn_features, churn_pipeline_dc_fe, churn_pipeline_model):
+
+	X_live_churn = X_live.filter(churn_features)
+	X_live_churn_dc_fe = churn_pipeline_dc_fe.transform(X_live_churn)
+	churn_prediction = churn_pipeline_model.predict(X_live_churn_dc_fe)
+	churn_prediction_proba = churn_pipeline_model.predict_proba(X_live_churn_dc_fe)
+
+	
+	st.write(churn_features)
+	st.write(churn_prediction_proba)
+	st.write(churn_prediction)
+
+	# Create a logic to display the results
+	churn_chance = churn_prediction_proba[churn_prediction]
+	churn_map = {0:"will not", 1:"will"}
+	churn_result = churn_prediction.replace(churn_map)
+
+	statement = (
+		f'* There is {churn_chance}% probability '
+		f'that this prospect {churn_result} churn.')
+
+	st.write(statement)
+	st.write("---")
+	return churn_prediction
+
+
+
+def predict_tenure(X_live, tenure_features, tenure_pipeline, tenure_labels_map):
+
+	X_live_tenure = X_live.filter(tenure_features)
+	tenure_prediction = tenure_pipeline.predict(X_live_tenure)
+	tenure_prediction_proba = tenure_pipeline.predict_proba(X_live_tenure)
+
+	# create a logic to display the results
+	statement = (
+		f"* There is a % probability the prospect will stay in the following range "
+		f"of months ")
+
+
+
+	st.write(tenure_pipeline)
+	st.write(tenure_prediction_proba)
+	st.write(tenure_prediction)
+	st.write("---")
 
 
 def DrawInputsWidgets(df):
