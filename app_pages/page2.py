@@ -37,22 +37,34 @@ def page2_body():
 
 	if churn_prediction == 1:
 		predict_tenure(X_live, tenure_features, tenure_pipeline, tenure_labels_map)
+
+	predict_cluster(X_live, cluster_features, cluster_pipeline, cluster_profile)
 		
 
+
+
+
+def predict_cluster(X_live, cluster_features, cluster_pipeline, cluster_profile):
 	X_live_cluster = X_live.filter(cluster_features)
 	cluster_prediction = cluster_pipeline.predict(X_live_cluster)
 	st.write(cluster_features)
 	st.write(cluster_prediction)
-	
+
+	statement = (
+		f"* The prospect is expected to belong to cluster {cluster_prediction[0]} \n"
+		f"* This cluster is considered xxx% of time churnable, "
+		f"consider the cluster profile below and the existing product offers to "
+		f" suggest a plan that the prospect can move to a non-churnable cluster.")
+	st.write(statement)
+
+
+
+
 	# a trick to not display index in st.table() or st.write()
 	cluster_profile.index = [" "] * len(cluster_profile) 
 	st.table(cluster_profile)
 
-    # cluster
-    # get inputs
-    # predict prosecpt cluster
-    # show cluster profile
-    # show options for each variable in the profile
+  
 
 
 
@@ -70,12 +82,15 @@ def predict_churn(X_live, churn_features, churn_pipeline_dc_fe, churn_pipeline_m
 	st.write(churn_prediction)
 
 	# Create a logic to display the results
-	churn_chance = churn_prediction_proba[churn_prediction]
-	churn_map = {0:"will not", 1:"will"}
-	churn_result = churn_prediction.replace(churn_map)
+	churn_chance = churn_prediction_proba[0,churn_prediction][0]*100
+	if churn_prediction == 1:
+		churn_result = 'will'
+	else:
+		churn_result = 'will not'
+
 
 	statement = (
-		f'* There is {churn_chance}% probability '
+		f'* There is {churn_chance.round(1)}% probability '
 		f'that this prospect {churn_result} churn.')
 
 	st.write(statement)
@@ -101,6 +116,11 @@ def predict_tenure(X_live, tenure_features, tenure_pipeline, tenure_labels_map):
 	st.write(tenure_prediction_proba)
 	st.write(tenure_prediction)
 	st.write("---")
+
+
+
+
+
 
 
 def DrawInputsWidgets(df):
