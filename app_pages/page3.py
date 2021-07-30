@@ -8,7 +8,7 @@ def page3_body():
     st.write("### ML Pipeline: Predict Prospect Churn")
 
     
-    # load 2 pipelines
+    # load files and pipelines
     churn_pipeline_dc_fe = load_pkl_file("outputs/ml_pipeline/predict_churn/clf_pipeline_data_cleaning_feat_eng.pkl")
     churn_pipeline_model = load_pkl_file("outputs/ml_pipeline/predict_churn/clf_pipeline_model.pkl")
     churn_features = load_pkl_file("outputs/ml_pipeline/predict_churn/X_train_columns.pkl")
