@@ -20,9 +20,9 @@ def page2_body():
 	churn_features = load_pkl_file("outputs/ml_pipeline/predict_churn/X_train_columns.pkl")
 
 	# load tenure pipeline files
-	tenure_pipeline = load_pkl_file("outputs/ml_pipeline/predict_tenure/clf_pipeline.pkl")
-	tenure_labels_map = load_pkl_file("outputs/ml_pipeline/predict_tenure/LabelsMap.pkl")
-	tenure_features = load_pkl_file("outputs/ml_pipeline/predict_tenure/X_train_columns.pkl")
+	# tenure_pipeline = load_pkl_file("outputs/ml_pipeline/predict_tenure/clf_pipeline.pkl")
+	# tenure_labels_map = load_pkl_file("outputs/ml_pipeline/predict_tenure/LabelsMap.pkl")
+	# tenure_features = load_pkl_file("outputs/ml_pipeline/predict_tenure/X_train_columns.pkl")
 	
 	# load cluster pipeline files
 	cluster_pipeline = load_pkl_file("outputs/ml_pipeline/cluster_analysis/cluster_pipeline.pkl")
@@ -35,8 +35,8 @@ def page2_body():
 									churn_pipeline_dc_fe, churn_pipeline_model)
 	
 
-	if churn_prediction == 1:
-		predict_tenure(X_live, tenure_features, tenure_pipeline, tenure_labels_map)
+	# if churn_prediction == 1:
+	# 	predict_tenure(X_live, tenure_features, tenure_pipeline, tenure_labels_map)
 
 	predict_cluster(X_live, cluster_features, cluster_pipeline, cluster_profile)
 		
