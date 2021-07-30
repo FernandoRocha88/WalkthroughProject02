@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 from src.data_management import load_telco_data, load_pkl_file
 
 def page2_body():
@@ -23,7 +24,7 @@ def page2_body():
 
 	############ tenure pipeline
 	tenure_pipeline = load_pkl_file("outputs/ml_pipeline/predict_tenure/clf_pipeline.pkl")
-	tenure_labels_map = load_pkl_file("outputs/ml_pipeline/predict_tenure/LabelsMap.pkl")
+	# tenure_labels_map = load_pkl_file("outputs/ml_pipeline/predict_tenure/LabelsMap.pkl")
 	tenure_features = load_pkl_file("outputs/ml_pipeline/predict_tenure/X_train_columns.pkl")
 	# if predict == 1
 	# .predict
@@ -31,6 +32,7 @@ def page2_body():
 	##### cluster pipeline
 	cluster_pipeline = load_pkl_file("outputs/ml_pipeline/cluster_analysis/cluster_pipeline.pkl")
 	cluster_features = load_pkl_file("outputs/ml_pipeline/cluster_analysis/cluster_pipeline_features.pkl")
+	cluster_profile = pd.read_csv("outputs/ml_pipeline/cluster_analysis/clusters_description.csv")
 
 
 	####
@@ -41,18 +43,26 @@ def page2_body():
 	st.write(churn_features)
 	st.write(churn_prediction_proba)
 	st.write(churn_prediction)
+	st.write("---")
 
-	if churn_prediction == 3: # 1:
+	if churn_prediction == 1: # 1:
 		X_live_tenure = X_live.filter(tenure_features)
-		tenure_prediction = tenure_pipeline.predict(X_live_tenure)
-		tenure_prediction_proba = tenure_pipeline.predict_proba(X_live_tenure)
-		st.write(tenure_features)
-		st.write(tenure_prediction_proba)
-		st.write(tenure_prediction)
+		# tenure_prediction = tenure_pipeline.predict(X_live_tenure)
+		# tenure_prediction_proba = tenure_pipeline.predict_proba(X_live_tenure)
+		st.write(tenure_pipeline)
+		# st.write(tenure_prediction_proba)
+		# st.write(tenure_prediction)
+		st.write("---")
 
 
 	X_live_cluster = X_live.filter(cluster_features)
-	cluster_prediction = 
+	cluster_prediction = cluster_pipeline.predict(X_live_cluster)
+	st.write(cluster_features)
+	st.write(cluster_prediction)
+	
+	# a trick to not display index in st.table() or st.write()
+	cluster_profile.index = [" "] * len(cluster_profile) 
+	st.table(cluster_profile)
 
     # cluster
     # get inputs
