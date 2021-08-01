@@ -26,8 +26,8 @@ def PredictionEvaluation(X,y,pipeline,LabelsMap):
 
 
 def PerformanceTrainTestSet(X_train,y_train,X_test,y_test,pipeline,LabelsMap):
-  st.write("### Train Set")
+  st.write("* Train Set")
   PredictionEvaluation(X_train,y_train,pipeline,LabelsMap)
 
-  st.write("### Test Set")
+  st.write("* Test Set")
   PredictionEvaluation(X_test,y_test,pipeline,LabelsMap)
