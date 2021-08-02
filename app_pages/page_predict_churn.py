@@ -10,15 +10,15 @@ from src.machine_learning.evaluate_clf import clf_performance_train_test_set
 def page_predict_churn_body():
     st.write("### ML Pipeline: Predict Prospect Churn")
 
+    version = 'v1'
+
     
     # load files and pipelines
-    churn_pipeline_dc_fe = load_pkl_file("outputs/ml_pipeline/predict_churn/clf_pipeline_data_cleaning_feat_eng.pkl")
-    churn_pipeline_model = load_pkl_file("outputs/ml_pipeline/predict_churn/clf_pipeline_model.pkl")
-    churn_features = load_pkl_file("outputs/ml_pipeline/predict_churn/X_train_columns.pkl")
-    churn_best_features = plt.imread("outputs/ml_pipeline/predict_churn/features_importance.png")
-
-    # load dataset
-    df = load_telco_data().filter(list(churn_features)+['Churn'] , axis=1)
+    churn_pipe_dc_fe = load_pkl_file(f'outputs/ml_pipeline/predict_churn/{version}/clf_pipeline_data_cleaning_feat_eng.pkl')
+    churn_pipe_model = load_pkl_file(f"outputs/ml_pipeline/predict_churn/{version}/clf_pipeline_model.pkl")
+    churn_feat_importance = plt.imread(f"outputs/ml_pipeline/predict_churn/{version}/features_importance.png")
+    X_train = pd.read_csv(f"outputs/ml_pipeline/predict_churn/{version}/X_train.csv")
+    X_test = pd.read_csv(f"outputs/ml_pipeline/predict_churn/{version}/X_test.csv")
 
 
     # show pipeline
@@ -27,37 +27,28 @@ def page_predict_churn_body():
         f"  * That was needed since the target was imbalanced, and we used SMOTE technique")
     st.write("  * The first is responsible for data cleaning and feature engineering.")
 
-    st.write(churn_pipeline_dc_fe)
+    st.write(churn_pipe_dc_fe)
     st.write("  * The second for feature scaling and modelling. ")
-    st.write(churn_pipeline_model)
+    st.write(churn_pipe_model)
     st.write("---")
 
   
     
     st.write("* The features the model was trained and its importance")
-    st.write(churn_features.to_list())
-    st.image(churn_best_features)
+    st.write(X_train.columns.to_list())
+    st.image(churn_feat_importance)
     st.write("---")
 
 
-    # split train test set
-    from sklearn.model_selection import train_test_split
-    X_train, X_test,y_train, y_test = train_test_split(
-        df.drop(['Churn'],axis=1),
-        df['Churn'],
-        test_size = config.TEST_SIZE,
-        random_state = config.RANDOM_STATE,
-    )
-
     # apply dc_fe pipeline (data cleaninig and feature engineering)
-    X_train = churn_pipeline_dc_fe.transform(X_train)
-    X_test = churn_pipeline_dc_fe.transform(X_test)
+    X_train = churn_pipe_dc_fe.transform(X_train)
+    X_test = churn_pipe_dc_fe.transform(X_test)
 
     # evaluate performance on train and test set
     st.write("### Pipeline Performance")
     clf_performance_train_test_set(X_train,y_train,
                                 X_test,y_test,
-                                pipeline = churn_pipeline_model,
+                                pipeline = churn_pipe_model,
                                 LabelsMap = {0:"No Churn", 1:"Yes Churn"})
 
 
