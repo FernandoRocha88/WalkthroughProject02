@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 from sklearn.metrics import classification_report, confusion_matrix, roc_auc_score
 
-def PredictionEvaluation(X,y,pipeline,LabelsMap):
+def clf_prediction_evaluation(X,y,pipeline,LabelsMap):
 
   prediction = pipeline.predict(X)
 
@@ -25,9 +25,9 @@ def PredictionEvaluation(X,y,pipeline,LabelsMap):
 
 
 
-def PerformanceTrainTestSet(X_train,y_train,X_test,y_test,pipeline,LabelsMap):
+def clf_performance_train_test_set(X_train,y_train,X_test,y_test,pipeline,LabelsMap):
   st.write("* Train Set")
-  PredictionEvaluation(X_train,y_train,pipeline,LabelsMap)
+  clf_prediction_evaluation(X_train,y_train,pipeline,LabelsMap)
 
   st.write("* Test Set")
-  PredictionEvaluation(X_test,y_test,pipeline,LabelsMap)
+  clf_prediction_evaluation(X_test,y_test,pipeline,LabelsMap)

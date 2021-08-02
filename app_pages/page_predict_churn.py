@@ -1,10 +1,11 @@
 
 import streamlit as st
+from config import config
 import pandas as pd
 import matplotlib.pyplot as plt
 from src.data_management import load_telco_data, load_pkl_file
-from src.machine_learning.evaluate_churn import PerformanceTrainTestSet
-from config import config
+from src.machine_learning.evaluate_clf import clf_performance_train_test_set
+
 
 def page_predict_churn_body():
     st.write("### ML Pipeline: Predict Prospect Churn")
@@ -54,10 +55,10 @@ def page_predict_churn_body():
 
     # evaluate performance on train and test set
     st.write("### Pipeline Performance")
-    PerformanceTrainTestSet(X_train,y_train,
-                            X_test,y_test,
-                            pipeline = churn_pipeline_model,
-                            LabelsMap = {0:"No Churn", 1:"Yes Churn"})
+    clf_performance_train_test_set(X_train,y_train,
+                                X_test,y_test,
+                                pipeline = churn_pipeline_model,
+                                LabelsMap = {0:"No Churn", 1:"Yes Churn"})
 
 
 #
