@@ -1,19 +1,24 @@
 import streamlit as st
 from app_pages.multipage import MultiPage
-from app_pages.page1 import page1_body
-from app_pages.page2 import page2_body
-from app_pages.page3 import page3_body
-from app_pages.page4 import page4_body
-from app_pages.page5 import page5_body
 
-app = MultiPage() # Create an instance of the app 
+# load pages scripts
+from app_pages.page_summary import page_summary_body
+from app_pages.page_ui import page_ui_body
+from app_pages.page_customer_base_churn import page_customer_base_churn_body
+from app_pages.page_predict_churn import page_predict_churn_body
+from app_pages.page_predict_tenure import page_predict_tenure_body
+from app_pages.page_cluster import page_cluster_body
+
+# Create an instance of the app 
+app = MultiPage() 
 
 # Add your app pages here using .add_page()
-# app.add_page("Customer Churn Study", page1_body)
-app.add_page("User Interface", page2_body)
-app.add_page("ML: Prospect Churn", page3_body)
-# app.add_page("ML: Prospect Tenure", page4_body)
-# app.add_page("ML: Cluster Base", page5_body)
+app.add_page("Quick Project Summary", page_summary_body)
+app.add_page("User Interface", page_ui_body)
+app.add_page("Customer Churn Study", page_customer_base_churn_body)
+app.add_page("ML: Prospect Churn", page_predict_churn_body)
+app.add_page("ML: Prospect Tenure", page_predict_tenure_body)
+app.add_page("ML: Cluster Base", page_cluster_body)
 
 # Run the  app
 app.run()

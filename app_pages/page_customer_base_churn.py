@@ -1,8 +1,10 @@
+
+
 import streamlit as st
 from src.data_management import load_telco_data
 from src.correlation_analysis import CalculateCorrAndPPS, DisplayCorrAndPPS
 
-def page1_body():
+def page_customer_base_churn_body():
     st.write("### Customer Base Churn Study")
     st.write(
         f"* It answers biz requirement 1 \n\n"
@@ -47,4 +49,3 @@ def page1_body():
         
         fig = px.parallel_coordinates(df[['Churn','MonthlyCharges','tenure',]], color="Churn")
         st.pyplot(fig)
-

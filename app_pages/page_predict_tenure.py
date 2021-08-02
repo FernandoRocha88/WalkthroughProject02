@@ -1,6 +1,7 @@
+
 import streamlit as st
 
-def page4_body():
+def page_predict_tenure_body():
     st.write("### ML Pipeline: Predict Prospect Tenure")
     st.write(
         f"* It shows ML pipeline performance to predict prospect tenure "

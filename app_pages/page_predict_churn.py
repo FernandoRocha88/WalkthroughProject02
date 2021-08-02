@@ -1,3 +1,4 @@
+
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -5,7 +6,7 @@ from src.data_management import load_telco_data, load_pkl_file
 from src.machine_learning.evaluate_churn import PerformanceTrainTestSet
 from config import config
 
-def page3_body():
+def page_predict_churn_body():
     st.write("### ML Pipeline: Predict Prospect Churn")
 
     
