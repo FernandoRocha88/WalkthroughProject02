@@ -90,7 +90,7 @@ As a Data Analyst from Code Institute Consulting, you are requested by Telco div
 
 ## Dashboard Design (Streamlit App User Interface)
 
-### Page 1: Customer Base Churn Study
+### Page 1: Quick project summary
 * Quick project summary
 
 ### Page 2: User Inteface
