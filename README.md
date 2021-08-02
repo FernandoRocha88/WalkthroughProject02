@@ -91,21 +91,24 @@ As a Data Analyst from Code Institute Consulting, you are requested by Telco div
 ## Dashboard Design (Streamlit App User Interface)
 
 ### Page 1: Customer Base Churn Study
-* answers biz requirement 1
+* Quick project summary
 
 ### Page 2: User Inteface
 * User Interface with prospect inputs and predictions indicating if the prospect will churn or not, if so when, to which cluster the prospect belongs and an indication on which cluster the prospect belong to.
 * In addition, present cluster profile; so the person who is attending the prospect can suggest a offer that will bring the prospect to a non churnable customer
 
-### Page 3: ChurnClf
+### Page 3: Customer Base Churn Study
+* answers biz requirement 1
+
+
+### Page 4: Predict Churn
 * Evaluation metrics/performance on ChurnClf
   * For both train and test set: Confusion Matrix and Classification Report
 
-### Page 4: TenureReg
+### Page 5: Predict Tenure
 * Evaluation metrics/performance on TenureReg
   * For both train and test set: R2, RMSE, MSE, MAE
 
-### Page 5: TelcoCluster
+### Page 6: Cluster Analysis
 * Evaluation metrics/performance on TelcoCluster
-  * 3D Scatter Plot for PCA with 3 components, colored by clusters
   * Silhouete score
