@@ -11,21 +11,34 @@ def page_ui_body():
 	st.write("### User Interface")
 	st.write("* Please insert prospect information for predictive analysis")
 
-
+	
 	# load churn pipleline files
-	churn_pipeline_dc_fe = load_pkl_file("outputs/ml_pipeline/predict_churn/clf_pipeline_data_cleaning_feat_eng.pkl")
-	churn_pipeline_model = load_pkl_file("outputs/ml_pipeline/predict_churn/clf_pipeline_model.pkl")
-	churn_features = load_pkl_file("outputs/ml_pipeline/predict_churn/X_train_columns.pkl")
+	version = 'v1'
+	churn_pipe_dc_fe = load_pkl_file(f'outputs/ml_pipeline/predict_churn/{version}/clf_pipeline_data_cleaning_feat_eng.pkl')
+	churn_pipe_model = load_pkl_file(f"outputs/ml_pipeline/predict_churn/{version}/clf_pipeline_model.pkl")
+	churn_features = (pd.read_csv(f"outputs/ml_pipeline/predict_churn/{version}/X_train.csv")
+					.columns
+					.to_list()
+					)
+
 
 	# load tenure pipeline files
-	tenure_pipeline = load_pkl_file("outputs/ml_pipeline/predict_tenure/clf_pipeline.pkl")
-	tenure_labels_map = load_pkl_file("outputs/ml_pipeline/predict_tenure/LabelsMap.pkl")
-	tenure_features = load_pkl_file("outputs/ml_pipeline/predict_tenure/X_train_columns.pkl")
+	version = 'v1'
+	tenure_pipe = load_pkl_file(f"outputs/ml_pipeline/predict_tenure/{version}/clf_pipeline.pkl")
+	tenure_labels_map = load_pkl_file(f"outputs/ml_pipeline/predict_tenure/{version}/LabelsMap.pkl")
+	tenure_features = (pd.read_csv(f"outputs/ml_pipeline/predict_tenure/{version}/X_train.csv")
+					.columns
+					.to_list()
+					)
 	
 	# load cluster pipeline files
-	cluster_pipeline = load_pkl_file("outputs/ml_pipeline/cluster_analysis/cluster_pipeline.pkl")
-	cluster_features = load_pkl_file("outputs/ml_pipeline/cluster_analysis/cluster_pipeline_features.pkl")
-	cluster_profile = pd.read_csv("outputs/ml_pipeline/cluster_analysis/clusters_description.csv")
+	version = 'v1'
+	cluster_pipe = load_pkl_file(f"outputs/ml_pipeline/cluster_analysis/{version}/cluster_pipeline.pkl")
+	cluster_features = (pd.read_csv(f"outputs/ml_pipeline/cluster_analysis/{version}/TrainSet.csv")
+						.columns
+						.to_list()
+						)
+	cluster_profile = pd.read_csv(f"outputs/ml_pipeline/cluster_analysis/{version}/clusters_description.csv")
 
 	df = load_telco_data()
 	# st.write(df)
@@ -39,12 +52,12 @@ def page_ui_body():
 	# predict on live data
 	if st.button("Run Analysis"): 
 		churn_prediction = predict_churn(X_live, churn_features,
-										churn_pipeline_dc_fe, churn_pipeline_model)
+										churn_pipe_dc_fe, churn_pipe_model)
 		
 		if churn_prediction == 1:
-			predict_tenure(X_live, tenure_features, tenure_pipeline, tenure_labels_map)
+			predict_tenure(X_live, tenure_features, tenure_pipe, tenure_labels_map)
 
-		predict_cluster(X_live, cluster_features, cluster_pipeline, cluster_profile)
+		predict_cluster(X_live, cluster_features, cluster_pipe, cluster_profile)
 			
 
 

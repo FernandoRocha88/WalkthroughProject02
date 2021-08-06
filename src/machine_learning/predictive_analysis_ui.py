@@ -56,8 +56,8 @@ def predict_tenure(X_live, tenure_features, tenure_pipeline, tenure_labels_map):
 def predict_cluster(X_live, cluster_features, cluster_pipeline, cluster_profile):
 	X_live_cluster = X_live.filter(cluster_features)
 	cluster_prediction = cluster_pipeline.predict(X_live_cluster)
-	# st.write(cluster_features)
-	# st.write(cluster_prediction)
+	st.write(cluster_features)
+	st.write(cluster_prediction)
 
 	statement = (
 		f"### The prospect is expected to belong to **cluster {cluster_prediction[0]}** \n"

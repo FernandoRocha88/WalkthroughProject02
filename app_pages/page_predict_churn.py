@@ -19,6 +19,10 @@ def page_predict_churn_body():
     churn_feat_importance = plt.imread(f"outputs/ml_pipeline/predict_churn/{version}/features_importance.png")
     X_train = pd.read_csv(f"outputs/ml_pipeline/predict_churn/{version}/X_train.csv")
     X_test = pd.read_csv(f"outputs/ml_pipeline/predict_churn/{version}/X_test.csv")
+    y_train = pd.read_csv(f"outputs/ml_pipeline/predict_churn/{version}/y_train.csv")
+    y_test = pd.read_csv(f"outputs/ml_pipeline/predict_churn/{version}/y_test.csv")
+
+    st.write(y_train.shape,y_test.shape) # check why prediction is wrong
 
 
     # show pipeline
@@ -35,7 +39,7 @@ def page_predict_churn_body():
   
     
     st.write("* The features the model was trained and its importance")
-    st.write(X_train.columns.to_list())
+    st.write(X_train.columns)
     st.image(churn_feat_importance)
     st.write("---")
 
