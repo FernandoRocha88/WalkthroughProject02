@@ -10,27 +10,20 @@ from src.machine_learning.evaluate_clf import clf_performance_train_test_set
 
 
 def page_predict_tenure_body():
-    st.write("### ML Pipeline: Predict Prospect Tenure")
-    st.write(
-        f"* It shows ML pipeline performance to predict prospect tenure "
-        f"when it is predicted that prospect will churn")
+    st.write("### ML Pipeline: Predict Prospect Tenure")    
 
+    # load tenure pipeline files
+    version = 'v1'
+    tenure_pipe = load_pkl_file(f"outputs/ml_pipeline/predict_tenure/{version}/clf_pipeline.pkl")
+    tenure_labels_map = load_pkl_file(f"outputs/ml_pipeline/predict_tenure/{version}/LabelsMap.pkl")
+    tenure_feat_importance = plt.imread(f"outputs/ml_pipeline/predict_tenure/{version}/features_importance.png")
+    tenure_labels_map = load_pkl_file(f"outputs/ml_pipeline/predict_tenure/{version}/LabelsMap.pkl")
+    X_train = pd.read_csv(f"outputs/ml_pipeline/predict_tenure/{version}/X_train.csv")
+    X_test = pd.read_csv(f"outputs/ml_pipeline/predict_tenure/{version}/X_test.csv")
+    y_train =  pd.read_csv(f"outputs/ml_pipeline/predict_tenure/{version}/y_train.csv")
+    y_test =  pd.read_csv(f"outputs/ml_pipeline/predict_tenure/{version}/y_test.csv")
 
-    
-
-    # load pipeline files
-    tenure_pipe = load_pkl_file("outputs/ml_pipeline/predict_tenure/clf_pipeline.pkl")
-    tenure_features = load_pkl_file("outputs/ml_pipeline/predict_tenure/X_train_columns.pkl")
-    tenure_feat_importance = plt.imread("outputs/ml_pipeline/predict_tenure/features_importance.png")
-    tenure_labels_map = load_pkl_file("outputs/ml_pipeline/predict_tenure/LabelsMap.pkl")
-
-    # load dataset
-    df = (
-        load_telco_data()
-        .query("Churn == 1")  
-        .filter(tenure_features + ['tenure'] , axis=1)
-        )
-    st.write(df.shape,df)
+ 
 
     # show pipeline steps
     st.write("* ML pipeline to predict tenure when prospect is expected to churn")
@@ -40,19 +33,10 @@ def page_predict_tenure_body():
     st.write("* The features the model was trained and its importance")
     st.image(tenure_feat_importance)
 
-    # split train test set
-    # split train test set
-    from sklearn.model_selection import train_test_split
-    X_train, X_test,y_train, y_test = train_test_split(
-        df.drop(['tenure'],axis=1),
-        df['tenure'],
-        test_size = config.TEST_SIZE,
-        random_state = config.RANDOM_STATE,
-    )
+
 
     # evaluate performance on both
     st.write("### Pipeline Performance")
-    st.write(tenure_pipe.predict(X_train))
     clf_performance_train_test_set(X_train,y_train,
                                 X_test,y_test,
                                 pipeline = tenure_pipe,

@@ -15,10 +15,10 @@ app = MultiPage()
 # Add your app pages here using .add_page()
 app.add_page("Quick Project Summary", page_summary_body)
 app.add_page("User Interface", page_ui_body)
-app.add_page("Customer Churn Study", page_customer_base_churn_body)
-app.add_page("ML: Prospect Churn", page_predict_churn_body)
+# app.add_page("Customer Churn Study", page_customer_base_churn_body)
+# app.add_page("ML: Prospect Churn", page_predict_churn_body)
 app.add_page("ML: Prospect Tenure", page_predict_tenure_body)
-app.add_page("ML: Cluster Base", page_cluster_body)
+# app.add_page("ML: Cluster Base", page_cluster_body)
 
 # Run the  app
 app.run()

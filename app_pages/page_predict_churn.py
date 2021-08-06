@@ -39,7 +39,7 @@ def page_predict_churn_body():
   
     
     st.write("* The features the model was trained and its importance")
-    st.write(X_train.columns)
+    st.write(X_train.columns.to_list())
     st.image(churn_feat_importance)
     st.write("---")
 
