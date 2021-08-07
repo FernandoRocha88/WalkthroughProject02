@@ -40,13 +40,12 @@ def page_ui_body():
 						)
 	cluster_profile = pd.read_csv(f"outputs/ml_pipeline/cluster_analysis/{version}/clusters_description.csv")
 
-	df = load_telco_data()
-	# st.write(df)
+
 
 	
 	# Generte Live Data
 	# check_variables_for_UI(tenure_features, churn_features, cluster_features)
-	X_live = DrawInputsWidgets(df)
+	X_live = DrawInputsWidgets()
 
 
 	# predict on live data
@@ -76,9 +75,14 @@ def check_variables_for_UI(tenure_features, churn_features, cluster_features):
 
 
 
-def DrawInputsWidgets(df):
-    # we create input widgets only for 12 features
+def DrawInputsWidgets():
 
+	# load dataset
+	df = load_telco_data()
+	# st.write(df)
+
+
+    # we create input widgets only for 12 features
 	col1, col2, col3, col4 = st.beta_columns(4)
 	col5, col6, col7, col8 = st.beta_columns(4)
 	col9, col10, col11, col12 = st.beta_columns(4)

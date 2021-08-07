@@ -59,9 +59,11 @@ def predict_cluster(X_live, cluster_features, cluster_pipeline, cluster_profile)
 	# st.write(cluster_features)
 	# st.write(cluster_prediction)
 
+
 	statement = (
 		f"### The prospect is expected to belong to **cluster {cluster_prediction[0]}** \n"
-		f"We defined that a cluster is churnable, when more than 30% has churned. \n"
+		f" We consider **cluster 0 as churnable** and **cluster 1 as almost churnable**. "
+		f" We consider **clusters 2 and 3 as non-churnable** \n"
 		f"* Consider the cluster profile below and the existing product offers to "
 		f" suggest a plan that the prospect can move to a better or a non-churnable cluster.")
 	st.write("---")
