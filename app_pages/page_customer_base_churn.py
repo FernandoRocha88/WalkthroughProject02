@@ -1,5 +1,3 @@
-
-
 import streamlit as st
 from src.data_management import load_telco_data
 from src.correlation_analysis import CalculateCorrAndPPS, DisplayCorrAndPPS
@@ -17,35 +15,60 @@ def page_customer_base_churn_body():
 
     # Check collected data
     if st.checkbox("Check Collected Data"):
-        st.write("#### Snapshot: Collected Data")
-        st.write(f"Dataset shape: {df.shape}")
-        st.write(df)
-        st.write("---")
+        check_data(df)
+        
 
 
     # correlation and pps analysis
     if st.checkbox("Conduct Correlation and PPS Analysis on collected Data"):
-        df_corr_pearson, df_corr_spearman, pps_matrix = CalculateCorrAndPPS(df)
-        DisplayCorrAndPPS(
-            df_corr_pearson, df_corr_spearman, pps_matrix,
-            CorrThreshold=0.4, PPS_Threshold=0.2)
+        correlation_study(df)
+        
 
 
     # how is churn level across tenure
-    if st.checkbox("Churn level across tenure"):
-        import matplotlib.pyplot as plt
-        import seaborn as sns
-        fig, axes = plt.subplots(nrows=1, ncols=2)
-        sns.boxplot(data=df,x='Churn', y='tenure', ax=axes[0])
-        sns.histplot(data=df, x='tenure', hue='Churn', kde=True, ax=axes[1])
-        st.pyplot(fig)
+    # if st.checkbox("Churn level across tenure"):
+    #     import matplotlib.pyplot as plt
+    #     import seaborn as sns
+    #     fig, axes = plt.subplots(nrows=1, ncols=2)
+    #     sns.boxplot(data=df,x='Churn', y='tenure', ax=axes[0])
+    #     sns.histplot(data=df, x='tenure', hue='Churn', kde=True, ax=axes[1])
+    #     st.pyplot(fig)
 
 
 
     # how is churn levels across main variables at clf
     if st.checkbox("Churn across main variables at clf"):
-        import matplotlib.pyplot as plt
-        import plotly.express as px
+        churn_across_features(df)
         
-        fig = px.parallel_coordinates(df[['Churn','MonthlyCharges','tenure',]], color="Churn")
-        st.pyplot(fig)
+
+
+def check_data(df):
+    st.write("#### Snapshot: Collected Data")
+    st.write(f"Dataset shape: {df.shape}")
+    st.write(df)
+    st.write("---")
+
+
+
+def correlation_study(df):
+    from feature_engine.encoding import OrdinalEncoder
+    encoder = OrdinalEncoder(encoding_method='ordered', variables = df.select_dtypes(include=['object']).columns.to_list())
+    df_processed = encoder.fit_transform(df, df['Churn'])
+    # st.write(df_processed)
+
+    df_corr_pearson, df_corr_spearman, pps_matrix = CalculateCorrAndPPS(df_processed)
+    DisplayCorrAndPPS(
+        df_corr_pearson, df_corr_spearman, pps_matrix,
+        CorrThreshold=0.2, PPS_Threshold=0.2)
+
+
+
+def churn_across_features(df):
+    import matplotlib.pyplot as plt
+    import plotly.express as px
+    from feature_engine.encoding import OrdinalEncoder
+
+    encoder = OrdinalEncoder(encoding_method='ordered', variables = df.select_dtypes(include=['object']).columns.to_list())
+    df_processed = encoder.fit_transform(df, df['Churn'])
+    fig = px.parallel_coordinates(df_processed[['Churn','Contract','tenure']], color="Churn")
+    st.plotly_chart(fig)
