@@ -8,7 +8,16 @@ from src.machine_learning.evaluate_clf import clf_performance_train_test_set
 
 
 def page_predict_churn_body():
+    st.write("---")
     st.write("### ML Pipeline: Predict Prospect Churn")
+
+    
+    st.write(
+        f"* We tuned this pipeline for Recall on 'Yes Churn' class, "
+        f"since we are interested in this project to not leave a potential churner behind. \n"
+        f"* We also accept the fact prospects that will likely not churn may be "
+        f"identified as potential churners.")
+    st.write("---")
 
     version = 'v1'
     # load files and pipelines
@@ -20,13 +29,12 @@ def page_predict_churn_body():
     y_train = pd.read_csv(f"outputs/ml_pipeline/predict_churn/{version}/y_train.csv").values
     y_test = pd.read_csv(f"outputs/ml_pipeline/predict_churn/{version}/y_test.csv").values
 
-    # st.write(type(y_train),y_train.shape,y_train) # check why prediction is wrong
-    st.write(X_train.shape,X_train)
+
 
     # show pipeline
     st.write(
-        f"#### This is made of 2 ML Pipelines arragended in series. \n"
-        f"  * That was needed since the target was imbalanced, and we used SMOTE technique")
+        f"#### 2 ML Pipelines arragended in series. \n"
+        f"That was needed since the target was imbalanced, and we used SMOTE technique")
     st.write("  * The first is responsible for data cleaning and feature engineering.")
 
     st.write(churn_pipe_dc_fe)
@@ -42,10 +50,8 @@ def page_predict_churn_body():
     st.write("---")
 
 
-    # apply dc_fe pipeline (data cleaninig and feature engineering)
-    # X_train = churn_pipe_dc_fe.transform(X_train)
-    # X_test = churn_pipe_dc_fe.transform(X_test)
-
+    # We don't need to apply dc_fe pipeline, since X_train and X_test
+    # were already transformed in the notebook
 
     # evaluate performance on train and test set
     st.write("### Pipeline Performance")
