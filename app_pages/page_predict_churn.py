@@ -11,19 +11,17 @@ def page_predict_churn_body():
     st.write("### ML Pipeline: Predict Prospect Churn")
 
     version = 'v1'
-
-    
     # load files and pipelines
     churn_pipe_dc_fe = load_pkl_file(f'outputs/ml_pipeline/predict_churn/{version}/clf_pipeline_data_cleaning_feat_eng.pkl')
     churn_pipe_model = load_pkl_file(f"outputs/ml_pipeline/predict_churn/{version}/clf_pipeline_model.pkl")
     churn_feat_importance = plt.imread(f"outputs/ml_pipeline/predict_churn/{version}/features_importance.png")
     X_train = pd.read_csv(f"outputs/ml_pipeline/predict_churn/{version}/X_train.csv")
     X_test = pd.read_csv(f"outputs/ml_pipeline/predict_churn/{version}/X_test.csv")
-    y_train = pd.read_csv(f"outputs/ml_pipeline/predict_churn/{version}/y_train.csv")
-    y_test = pd.read_csv(f"outputs/ml_pipeline/predict_churn/{version}/y_test.csv")
+    y_train = pd.read_csv(f"outputs/ml_pipeline/predict_churn/{version}/y_train.csv").values
+    y_test = pd.read_csv(f"outputs/ml_pipeline/predict_churn/{version}/y_test.csv").values
 
-    st.write(y_train.shape,y_test.shape) # check why prediction is wrong
-
+    # st.write(type(y_train),y_train.shape,y_train) # check why prediction is wrong
+    st.write(X_train.shape,X_train)
 
     # show pipeline
     st.write(
@@ -45,8 +43,9 @@ def page_predict_churn_body():
 
 
     # apply dc_fe pipeline (data cleaninig and feature engineering)
-    X_train = churn_pipe_dc_fe.transform(X_train)
-    X_test = churn_pipe_dc_fe.transform(X_test)
+    # X_train = churn_pipe_dc_fe.transform(X_train)
+    # X_test = churn_pipe_dc_fe.transform(X_test)
+
 
     # evaluate performance on train and test set
     st.write("### Pipeline Performance")
