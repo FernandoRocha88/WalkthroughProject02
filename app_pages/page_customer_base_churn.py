@@ -5,7 +5,7 @@ from src.correlation_analysis import CalculateCorrAndPPS, DisplayCorrAndPPS
 def page_customer_base_churn_body():
     st.write("### Customer Base Churn Study")
     st.write(
-        f"#### As a customer I am interested to understand the patterns from my customer base, "
+        f"* As a customer I am interested to understand the patterns from my customer base, "
         f"so I can better manage churn levels.")
 
 
@@ -26,20 +26,44 @@ def page_customer_base_churn_body():
     st.write(
         f"* A correlation study was conducted in the notebook to better understand how "
         f"the variables are correlated to Churn levels. \n"
-        f"The most correlated variable are: **{vars_to_study}**")
+        f"The most correlated variable are: **{vars_to_study}**"
+    )
+
+    st.info(
+        f"The correlation indications and plots below interpretation converge. "
+        f"It is indicated that: \n"
+        f"* A churned customern typically has a month to month contract" 
+        f"and doesn't have 2 year contract. \n"
+        f"* A churned customer typically has fiber optic. \n"
+        f"* A churned customer typically doesn't have tech support. \n"
+        f"* A churned customer doesn't have online security. \n"
+        f"* A churned customer typically has low tenure levels. \n"
+        f"* A churned customer typically has as payment method electronic check\n \n"
+        f"The insights above will be used as reference additional investigations. "
+        f"Like: why high churn levels in fiber optic?"
+        f"But for the present project, it answers business requeriment 1."
+    )
+
+    st.write(
+        )
+
+    st.success(
+        f"Find below how the insights can be used when predicting prospect churning\n\n"
+        f"* If a prospect looks to be churnable, and is not showing openness to our offers, "
+        f"we will concede free tech support and online security for 18 months. \n"
+        f"* We will offer 15% discount for a year when the prospect switch from "
+        f"month to month to year plan. \n"
+        f"* We will give 5% discount when the prospect switch to an automated payment method.")
 
     df_eda = df.filter(vars_to_study + ['Churn'])
-        
-
     # Individual plots per variable
-    st.set_option('deprecation.showPyplotGlobalUse', False)
+    # st.set_option('deprecation.showPyplotGlobalUse', False)
     if st.checkbox("Churn Levels per Variable Distribution"):
         churn_level_per_variable(df_eda)
         
     # Parallel plot
     if st.checkbox("Parallel Plot"):
-        st.write("asasd")
-        # churn_across_features(df[vars_to_study])
+        parallel_plot_churn(df_eda)
         
 
 
@@ -55,18 +79,18 @@ def inspect_data(df):
 import matplotlib.pyplot as plt
 import seaborn as sns
 def plot_categorical(df, col, target_var):
-
-  plt.figure(figsize=(12, 5))
-  sns.countplot(data=df, x=col, hue=target_var,order = df[col].value_counts().index)
-  plt.xticks(rotation=90) 
-  plt.title(f"{col}", fontsize=20,y=1.05)        
-  st.pyplot()
+    fig, axes = plt.subplots(figsize=(12, 5))
+    # plt.figure(figsize=(12, 5))
+    sns.countplot(data=df, x=col, hue=target_var,order = df[col].value_counts().index)
+    plt.xticks(rotation=90) 
+    plt.title(f"{col}", fontsize=20,y=1.05)        
+    st.pyplot(fig)
 
 def plot_numerical(df, col, target_var):
-  plt.figure(figsize=(8, 5))
-  sns.histplot(data=df, x=col, hue=target_var, kde=True,element="step") 
-  plt.title(f"{col}", fontsize=20,y=1.05)
-  st.pyplot()
+    fig, axes = plt.subplots(figsize=(8, 5))
+    sns.histplot(data=df, x=col, hue=target_var, kde=True,element="step") 
+    plt.title(f"{col}", fontsize=20,y=1.05)
+    st.pyplot(fig)
 
 
 def churn_level_per_variable(df_eda):
@@ -79,5 +103,28 @@ def churn_level_per_variable(df_eda):
             plot_numerical(df_eda, col, target_var)
 
 
+
+def parallel_plot_churn(df_eda):
+    from feature_engine.discretisation import ArbitraryDiscretiser
+    import numpy as np
+    tenure_map = [-np.Inf, 5, 10, 20, 30, np.Inf]
+    disc = ArbitraryDiscretiser(binning_dict={'tenure': tenure_map})
+    df_parallel = disc.fit_transform(df_eda)
+    
+    n_classes = len(tenure_map) - 1
+    classes_ranges = disc.binner_dict_['tenure'][1:-1]
+
+    LabelsMap = {}
+    for n in range(0,n_classes):
+        if n == 0: LabelsMap[n] = f"<{classes_ranges[0]}"
+        elif n == n_classes-1: LabelsMap[n] = f"+{classes_ranges[-1]}"
+        else: LabelsMap[n] = f"{classes_ranges[n-1]} to {classes_ranges[n]}"
+
+    df_parallel['tenure'] = df_parallel['tenure'].replace(LabelsMap)
+
+    import plotly.express as px
+    fig = px.parallel_categories(df_parallel, color="Churn",
+                                width=750,height=500,)
+    st.plotly_chart(fig)
 
 
