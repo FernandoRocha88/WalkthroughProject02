@@ -9,7 +9,10 @@ from src.machine_learning.predictive_analysis_ui import (
 
 def page_ui_body():
 	st.write("### User Interface")
-	st.write("* Please insert prospect information for predictive analysis")
+	st.write(
+		f"* Please insert prospect information for predictive analysis.\n"
+		f"* Take a look in the main features in the ML pipelines to make sense "
+		f"which feature impacts more which ML pipeline.")
 
 	
 	# load churn pipleline files
@@ -86,21 +89,31 @@ def DrawInputsWidgets():
 	col1, col2, col3, col4 = st.beta_columns(4)
 	col5, col6, col7, col8 = st.beta_columns(4)
 	col9, col10, col11, col12 = st.beta_columns(4)
-	percentageMin, percentageMax = 0.5, 2.0
+	percentageMin, percentageMax = 0.4, 2.0
 
 
-	X_live = pd.DataFrame([],index=[0])
+	# create empy DataFrame, which will be the live data
+	X_live = pd.DataFrame([], index=[0]) 
 
 
 	with col1:
-		feature = "StreamingTV"
+		feature = "Contract"
 		st_widget = st.selectbox(
 			label= feature,
 			options= df[feature].unique()
 			)
 	X_live[feature] = st_widget
-	
+
+
 	with col2:
+		feature = "InternetService"
+		st_widget = st.selectbox(
+			label= feature,
+			options= df[feature].unique()
+			)
+	X_live[feature] = st_widget
+
+	with col3:
 		feature = "MonthlyCharges"
 		st_widget = st.number_input(
 			label= feature,
@@ -110,64 +123,25 @@ def DrawInputsWidgets():
 			)
 	X_live[feature] = st_widget
 
-
-	with col3:
-		feature = "Contract"
+	with col4:
+		feature = "PaymentMethod"
 		st_widget = st.selectbox(
 			label= feature,
 			options= df[feature].unique()
 			)
 	X_live[feature] = st_widget
 
-	with col4:
+
+	with col5:
 		feature = "Partner"
 		st_widget = st.selectbox(
 			label= feature,
 			options= df[feature].unique()
 			)
 	X_live[feature] = st_widget
-	
-	with col5:
-		feature = "TechSupport"
-		st_widget = st.selectbox(
-			label= feature,
-			options= df[feature].unique()
-			)
-	X_live[feature] = st_widget
+
 
 	with col6:
-		feature = "InternetService"
-		st_widget = st.selectbox(
-			label= feature,
-			options= df[feature].unique()
-			)
-	X_live[feature] = st_widget
-
-	with col7:
-		feature = "OnlineBackup"
-		st_widget = st.selectbox(
-			label= feature,
-			options= df[feature].unique()
-			)
-	X_live[feature] = st_widget
-
-	with col8:
-		feature = "OnlineSecurity"
-		st_widget = st.selectbox(
-			label= feature,
-			options= df[feature].unique()
-			)
-	X_live[feature] = st_widget
-
-	with col9:
-		feature = "DeviceProtection"
-		st_widget = st.selectbox(
-			label= feature,
-			options= df[feature].unique()
-			)
-	X_live[feature] = st_widget
-
-	with col10:
 		feature = "MultipleLines"
 		st_widget = st.selectbox(
 			label= feature,
@@ -175,13 +149,52 @@ def DrawInputsWidgets():
 			)
 	X_live[feature] = st_widget
 
-	with col11:
-		feature = "PaymentMethod"
+
+
+
+	with col7:
+		feature = "StreamingTV"
 		st_widget = st.selectbox(
 			label= feature,
 			options= df[feature].unique()
 			)
 	X_live[feature] = st_widget
+	
+
+	with col8:
+		feature = "TechSupport"
+		st_widget = st.selectbox(
+			label= feature,
+			options= df[feature].unique()
+			)
+	X_live[feature] = st_widget
+
+
+
+	with col9:
+		feature = "OnlineBackup"
+		st_widget = st.selectbox(
+			label= feature,
+			options= df[feature].unique()
+			)
+	X_live[feature] = st_widget
+
+	with col10:
+		feature = "OnlineSecurity"
+		st_widget = st.selectbox(
+			label= feature,
+			options= df[feature].unique()
+			)
+	X_live[feature] = st_widget
+
+	with col11:
+		feature = "DeviceProtection"
+		st_widget = st.selectbox(
+			label= feature,
+			options= df[feature].unique()
+			)
+	X_live[feature] = st_widget
+
 
 	with col12:
 		feature = "StreamingMovies"
