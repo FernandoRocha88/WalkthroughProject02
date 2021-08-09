@@ -44,8 +44,8 @@ The data set includes information about:
 ## Business Requirements
 As a Data Analyst from Code Institute Consulting, you are requested by Telco division to provide actionable insights and data driven recommendations to a Telecom corporation. This company has substantial customer base and is interested to manage churn levels and understand how the sales team could better interact with prospects.
 
-* 1 - As a customer I am interested to understand the patterns from my customer base, so I can better manage churn levels.
-* 2 - As a customer I am interested to tell whether or not a given prospect will churn. If so, when? In addition I am interested to from which customer group/cluster this prospect will belong, and based on that, present potential factors that could mantain/bring the prospect to a non-churnable cluster
+* 1 - I am interested to understand the patterns from my customer base, so I can better manage churn levels.
+* 2 - I am interested to tell whether or not a given prospect will churn. If so, when? In addition I am interested to from which customer group/cluster this prospect will belong, and based on that, present potential factors that could mantain/bring the prospect to a non-churnable cluster
 
 
 ## Hypothesis and how to validate?
