@@ -49,15 +49,18 @@ As a Data Analyst from Code Institute Consulting, you are requested by Telco div
 
 
 ## Hypothesis and how to validate?
-* sth on churn levels and tenure
-* sth on predict churn, tenure
+* We suspect customers are churning with low tenure levels
+	* A Correlation study can help in this investigation
+* A survey showed Fiber Optic is very appreciated by our customer
+	* A Correlation study can help in this investigation
+* sth related to the ml pipelines
 
 
 ## Rationale to map the business requirements to the Data Visualizations and ML tasks
 * **Business Requirement 1**: Data Visualization and Correlation study
 	* We will display a DataFrame for all customer base
-	* We will conduct a correlation and PPS analysis to better understand how the variable are correlated to Churn
-	* We will plot...
+	* We will conduct a correlation study (pearson and spearman) to better understand how the variablse are correlated to Churn
+	* We will plot the main variables against Churn to visualize insights.
 
 
 * **Business Requirement 2**:  Classification, Regression, Cluster, Data Analysis
