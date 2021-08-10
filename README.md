@@ -63,8 +63,17 @@ As a Data Analyst from Code Institute Consulting, you are requested by Telco div
 ## ML Business Case
 
 ### ChurnClf
-* We want a ML model to predict
-
+* We want a ML model to predict if a prospect will churn or not, based on historical data from customer base, which doesn't include tenure and total charges, since these values are zero for a prospect. It is a supervised model, a 2-class, single-label, classification model: 0 (no churn), 1 (yes churn)
+* Our ideal outcome is provide to our sales team a reliable insight on how to onboard customer with a higher sense of loyalty.
+* The model success metrics are
+	* at least 85% Recall for Churn, on train and test set (We don't want to miss a potential churner)
+	* The ML model is considered a failure if:
+		* after 3 months of usage, more than 30% of new onboarded custormer churn (it is an indication that the offers are not working or the model is not detecting potential churners)
+		* Precision for non churn customer is lower than 80% on train and test set. (We don't want to offer free discount to many non churnable prospects)
+* The model output is defined as flag, indicating if a prospect will churn or not, and the associate probability of churning. If the prospect is online, the prospect will have already provided the input data via a form. If the prospect is talking to a sales person, the sales person will conduct a interview to gather the input data and feed into the App. The prediction is made on the fly (not in batches).
+* Heuristics: Currently there is no approach to predict churn on prospect
+* The training data to fit the model come from the Telco Customer. This dataset contains about 7 thousand customer records.
+	* Train data - target: Churn ; features: all other variables, but tenure, total charges and customerID
 
 ### TenureReg
 * We want a ML model
