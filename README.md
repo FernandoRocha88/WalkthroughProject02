@@ -1,13 +1,3 @@
-
-* AI system to predict:
-	- if a prospect will churn, if so, when?
-	- from which group this prospect will belong, and based on that, present potential factors that could mantain/bring the prospect to a non-churnable cluster
- 
- <img src="https://github.com/FernandoRocha88/WalkthroughProject02/blob/main/pictures/WalkthroughProject02%20-%20read%20me%20image.png" width="80%" height="80%"/>
-
-
-
-
 ## Variables Meaning
 Each row represents a customer, each column contains customer attribute
 The data set includes information about:
