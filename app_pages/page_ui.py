@@ -52,7 +52,8 @@ def page_ui_body():
 
 
 	# predict on live data
-	if st.button("Run Analysis"): 
+	st.write("---")
+	if st.button("Run Predictive Analysis"): 
 		churn_prediction = predict_churn(X_live, churn_features,
 										churn_pipe_dc_fe, churn_pipe_model)
 		

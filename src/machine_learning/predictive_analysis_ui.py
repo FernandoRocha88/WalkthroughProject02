@@ -23,7 +23,7 @@ def predict_churn(X_live, churn_features, churn_pipeline_dc_fe, churn_pipeline_m
 		f'### There is {churn_chance.round(1)}% probability '
 		f'that this prospect **{churn_result} churn**.')
 
-	st.write("---")
+
 	st.write(statement)
 	return churn_prediction
 

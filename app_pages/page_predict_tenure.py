@@ -21,7 +21,7 @@ def page_predict_tenure_body():
         f"* We tuned this pipeline for Recall on '<4.0' class, "
         f"since we are interested in this project to detect any prospect that may churn soon. \n"
         f"* We notice that <4.0 and +20.0 classes have reasonable levels of performance, where "
-        f"'4.0 to 20.0' performance is poor. This will be a limtation of our project and we "
+        f"'4.0 to 20.0' performance is poor. This will be a limitation of our project and we "
         f"accept that a prediction on <4.0 and +20.0 will be handled as a <4.0.")
     st.write("---")
 
