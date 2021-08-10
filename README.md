@@ -76,7 +76,16 @@ As a Data Analyst from Code Institute Consulting, you are requested by Telco div
 	* Train data - target: Churn ; features: all other variables, but tenure, total charges and customerID
 
 ### TenureReg
-* We want a ML model
+* We want a ML model to predict tenure levels, in months, for a prospect that is expected to churn. It is a supervised model, a uni-dimensional regression model.
+* Our ideal outcome is provide to our sales team a reliable insight on how to onboard customer with a higher sense of loyalty.
+* The model success metrics are
+	* At least 0.7 for R2 score , on train and test set
+	* The ML model is considered a failure if:
+		* after 12 months of usage, model's predictions are 50% off more than 30% of the time. Say, a prediction is >50% off if predicted 10 months and the actual value was 2 months.
+* The output is defined as a continious value for tenure, in months. It is assumed that this model will predict tenure if the ChurnClf model predicts 1 (yes for churn).  If the prospect is online, the prospect will have already provided the input data via a form. If the prospect is talking to a sales person, the sales person will conduct a interview to gather the input data and feed into the App. The prediction is made on the fly (not in batches).
+* Heuristics: Currently there is no approach to predict churn on prospect
+* * The training data to fit the model come from the Telco Customer. This dataset contains about 7 thousand customer records.
+	* Train data - filter data where Churn == 1, then drop Churn variable. Target: tenure ; features: all other variables, but total charges and customerID
 
 
 ### TelcoCluster
