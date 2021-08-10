@@ -51,25 +51,22 @@ As a Data Analyst from Code Institute Consulting, you are requested by Telco div
 ## Hypothesis and how to validate?
 * We suspect customers are churning with low tenure levels
 	* A Correlation study can help in this investigation
-* A survey showed Fiber Optic is very appreciated by our customer
+* A customer survey showed Fiber Optic is very appreciated by our customers
 	* A Correlation study can help in this investigation
-* sth related to the ml pipelines
 
 
 ## Rationale to map the business requirements to the Data Visualizations and ML tasks
 * **Business Requirement 1**: Data Visualization and Correlation study
 	* We will display a DataFrame for all customer base
-	* We will conduct a correlation study (pearson and spearman) to better understand how the variablse are correlated to Churn
+	* We will conduct a correlation study (pearson and spearman) to better understand how the variables are correlated to Churn
 	* We will plot the main variables against Churn to visualize insights.
 
 
 * **Business Requirement 2**:  Classification, Regression, Cluster, Data Analysis
 	* We want to predict if a prospect will churn or not. We want to build a binary classifier
-	* We want to predict tenure level for a prospect that is expected to churn. We want to build a regression model or, depending on the regressor performance, switch the ML task to classification
-	* We want to cluster similar customer, to predict from which cluster a prospect will belong to.
+	* We want to predict tenure level for a prospect that is expected to churn. We want to build a regression model or, depending on the regressor performance, change the ML task to classification
+	* We want to cluster similar customers, to predict from which cluster a prospect will belong to.
 	* We want to understand clusters profile, so we can present potential options that could mantain or bring the prospect to a non-churnable cluster
-
-
 
 
 
@@ -101,8 +98,7 @@ As a Data Analyst from Code Institute Consulting, you are requested by Telco div
 * In addition, present cluster profile; so the person who is attending the prospect can suggest a offer that will bring the prospect to a non churnable customer
 
 ### Page 3: Customer Base Churn Study
-* answers biz requirement 1
-
+* It will answer business requirement 1
 
 ### Page 4: Predict Churn
 * Evaluation metrics/performance on ChurnClf
@@ -113,5 +109,9 @@ As a Data Analyst from Code Institute Consulting, you are requested by Telco div
   * For both train and test set: R2, RMSE, MSE, MAE
 
 ### Page 6: Cluster Analysis
-* Evaluation metrics/performance on TelcoCluster
-  * Silhouete score
+* Evaluation metrics/performance on TelcoCluster:  Silhouete score
+* Clusters distribution across Churn levels
+* Relative Percentage (%) of Churn in each cluster
+* Cluster Profile
+
+
