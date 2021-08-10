@@ -83,17 +83,22 @@ As a Data Analyst from Code Institute Consulting, you are requested by Telco div
 	* The ML model is considered a failure if:
 		* after 12 months of usage, model's predictions are 50% off more than 30% of the time. Say, a prediction is >50% off if predicted 10 months and the actual value was 2 months.
 * The output is defined as a continious value for tenure, in months. It is assumed that this model will predict tenure if the ChurnClf model predicts 1 (yes for churn).  If the prospect is online, the prospect will have already provided the input data via a form. If the prospect is talking to a sales person, the sales person will conduct a interview to gather the input data and feed into the App. The prediction is made on the fly (not in batches).
-* Heuristics: Currently there is no approach to predict churn on prospect
-* * The training data to fit the model come from the Telco Customer. This dataset contains about 7 thousand customer records.
+* Heuristics: Currently there is no approach to predict tenure levels on prospect or customer
+* The training data to fit the model come from the Telco Customer. This dataset contains about 7 thousand customer records.
 	* Train data - filter data where Churn == 1, then drop Churn variable. Target: tenure ; features: all other variables, but total charges and customerID
 
 
 ### TelcoCluster
-* We want a ML model
+* We want a ML model to cluster similar customer behaviour. It is an unsupervised model
+* Our ideal outcome is provide to our sales team a reliable insight on how to onboard customer with a higher sense of loyalty.
+* The model success metrics are
+	* at least 0.45 for silhoute socre
+	* The ML model is considered a failure if: model suggests from than 15 clusters (might become too difficult to interpret in practical terms)
+* The output is defined as an additional column appended to the dataset. This column represents the clusters suggestions. It is a categorical and nominal variable, represented by numbers, starting at 0.
+* Heuristics: Currently there is no approach to group similar customers
+* The training data to fit the model come from the Telco Customer. This dataset contains about 7 thousand customer records.
+	* Train data - features: all variables, but customerID, TotalCharges, Churn, and tenure 
 
-
-
---
 
 ## Dashboard Design (Streamlit App User Interface)
 
