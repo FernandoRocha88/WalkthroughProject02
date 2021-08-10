@@ -12,7 +12,7 @@ def page_predict_churn_body():
     st.write("### ML Pipeline: Predict Prospect Churn")
 
     
-    st.write(
+    st.info(
         f"* We tuned this pipeline for Recall on 'Yes Churn' class, "
         f"since we are interested in this project to not leave a potential churner behind. \n"
         f"* We also accept the fact prospects that will likely not churn may be "

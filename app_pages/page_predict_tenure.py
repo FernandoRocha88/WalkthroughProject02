@@ -14,7 +14,7 @@ def page_predict_tenure_body():
     st.write("### ML Pipeline: Predict Prospect Tenure")    
 
 
-    st.write(
+    st.info(
         f"* Initially we wanted to have a Regressor model to predict tenure for a likely "
         f"churnable prospect, but regressor performance was weak. We converted the target to "
         f"classes and transformed the ML task to a classification problem. \n"

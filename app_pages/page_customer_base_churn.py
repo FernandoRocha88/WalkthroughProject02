@@ -60,6 +60,20 @@ def page_customer_base_churn_body():
         st.write(
             f"* Information in yellow indicates the profile from a churned customer")
         parallel_plot_churn(df_eda)
+
+    st.write("---")
+    if st.checkbox("Project Hypothesis and Validation"):
+        project_hypothesis()
+        
+
+def project_hypothesis():
+    st.success(
+        f"* We suspect customers are churning with low tenure levels: Correct, "
+        f"the correlation study supports that. \n"
+        f"* A customer survey showed Fiber Optic is very appreciated by our customers: "
+        f"a churned user typically has Fiber Optic. The insight will be taken to the "
+        f"survey team for further discussions and investigations."
+    )
         
 
 
