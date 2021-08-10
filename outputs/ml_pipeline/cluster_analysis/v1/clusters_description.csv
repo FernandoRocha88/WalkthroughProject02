@@ -1,0 +1,5 @@
+Cluster,MonthlyCharges,PaymentMethod,InternetService,Churn
+0,78 -- 98,"'Electronic check': 89% , 'Mailed check': 11% ","'Fiber optic': 89% , 'DSL': 11% ","'0': 52% , '1': 48% "
+1,44 -- 60,"'Mailed check': 32% , 'Electronic check': 27% , 'Bank transfer (automatic)': 24% ","'DSL': 90% , 'Fiber optic': 10% ","'0': 72% , '1': 28% "
+2,20 -- 21,"'Mailed check': 49% , 'Bank transfer (automatic)': 22% , 'Credit card (automatic)': 22% ",'No': 100% ,"'0': 93% , '1': 7% "
+3,79 -- 101,"'Credit card (automatic)': 51% , 'Bank transfer (automatic)': 45% , 'Mailed check': 5% ","'Fiber optic': 64% , 'DSL': 36% ","'0': 83% , '1': 17% "
