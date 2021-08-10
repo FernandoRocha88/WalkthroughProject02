@@ -11,7 +11,8 @@ def page_cluster_body():
   # load cluster analysis files
   version = 'v1'
   cluster_pipe = load_pkl_file(f"outputs/ml_pipeline/cluster_analysis/{version}/cluster_pipeline.pkl")
-  cluster_silhouette = plt.imread(f"outputs/ml_pipeline/cluster_analysis/{version}/features_importance.png")
+  cluster_silhouette = plt.imread(f"outputs/ml_pipeline/cluster_analysis/{version}/clusters_silhouette.png")
+  features_to_cluster = plt.imread(f"outputs/ml_pipeline/cluster_analysis/{version}/features_define_cluster.png")
   cluster_profile = pd.read_csv(f"outputs/ml_pipeline/cluster_analysis/{version}/clusters_description.csv")
   
   df_churn_vs_clusters = load_telco_data()[['Churn']]
@@ -25,6 +26,9 @@ def page_cluster_body():
   st.image(cluster_silhouette)
 
   cluster_distribution_per_variable(df=df_churn_vs_clusters, target='Churn')
+
+  st.write("#### Most important features to define a cluster")
+  st.image(features_to_cluster)
 
   st.write("#### Cluster Profile")
   statement = (
