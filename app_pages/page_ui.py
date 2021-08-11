@@ -35,7 +35,7 @@ def page_ui_body():
 					)
 	
 	# load cluster pipeline files
-	version = 'v1'
+	version = 'v2'
 	cluster_pipe = load_pkl_file(f"outputs/ml_pipeline/cluster_analysis/{version}/cluster_pipeline.pkl")
 	cluster_features = (pd.read_csv(f"outputs/ml_pipeline/cluster_analysis/{version}/TrainSet.csv")
 						.columns
@@ -83,13 +83,10 @@ def DrawInputsWidgets():
 
 	# load dataset
 	df = load_telco_data()
-	# st.write(df)
 
-
-    # we create input widgets only for 12 features
+    # we create input widgets only for 8 features	
 	col1, col2, col3, col4 = st.beta_columns(4)
 	col5, col6, col7, col8 = st.beta_columns(4)
-	col9, col10, col11, col12 = st.beta_columns(4)
 	percentageMin, percentageMax = 0.4, 2.0
 
 
@@ -150,37 +147,7 @@ def DrawInputsWidgets():
 			)
 	X_live[feature] = st_widget
 
-
-
-
 	with col7:
-		feature = "StreamingTV"
-		st_widget = st.selectbox(
-			label= feature,
-			options= df[feature].unique()
-			)
-	X_live[feature] = st_widget
-	
-
-	with col8:
-		feature = "TechSupport"
-		st_widget = st.selectbox(
-			label= feature,
-			options= df[feature].unique()
-			)
-	X_live[feature] = st_widget
-
-
-
-	with col9:
-		feature = "OnlineBackup"
-		st_widget = st.selectbox(
-			label= feature,
-			options= df[feature].unique()
-			)
-	X_live[feature] = st_widget
-
-	with col10:
 		feature = "OnlineSecurity"
 		st_widget = st.selectbox(
 			label= feature,
@@ -188,7 +155,7 @@ def DrawInputsWidgets():
 			)
 	X_live[feature] = st_widget
 
-	with col11:
+	with col8:
 		feature = "DeviceProtection"
 		st_widget = st.selectbox(
 			label= feature,
@@ -197,13 +164,6 @@ def DrawInputsWidgets():
 	X_live[feature] = st_widget
 
 
-	with col12:
-		feature = "StreamingMovies"
-		st_widget = st.selectbox(
-			label= feature,
-			options= df[feature].unique()
-			)
-	X_live[feature] = st_widget
 
 
 	return X_live
