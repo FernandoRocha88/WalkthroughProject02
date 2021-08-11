@@ -35,7 +35,7 @@ def page_ui_body():
 					)
 	
 	# load cluster pipeline files
-	version = 'v2'
+	version = 'v1'
 	cluster_pipe = load_pkl_file(f"outputs/ml_pipeline/cluster_analysis/{version}/cluster_pipeline.pkl")
 	cluster_features = (pd.read_csv(f"outputs/ml_pipeline/cluster_analysis/{version}/TrainSet.csv")
 						.columns

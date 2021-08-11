@@ -9,7 +9,7 @@ def page_cluster_body():
 
 
   # load cluster analysis files
-  version = 'v2'
+  version = 'v1'
   cluster_pipe = load_pkl_file(f"outputs/ml_pipeline/cluster_analysis/{version}/cluster_pipeline.pkl")
   cluster_silhouette = plt.imread(f"outputs/ml_pipeline/cluster_analysis/{version}/clusters_silhouette.png")
   features_to_cluster = plt.imread(f"outputs/ml_pipeline/cluster_analysis/{version}/features_define_cluster.png")
