@@ -6,6 +6,12 @@ import matplotlib.pyplot as plt
 def page_summary_body():
 
     st.write("### Quick Project Summary")
+
+    st.write(
+        f"* For additional information, please **visit and read** the "
+        f"[Project README file](https://github.com/FernandoRocha88/WalkthroughProject02/blob/main/README.md).")
+    
+
     st.write(
         f"* A **churned** customer is a user who has stopped using your product/service. "
         f"This customer, has a **tenure** level, which is the number of months this person " 
@@ -17,10 +23,7 @@ def page_summary_body():
         f"a non-churnable cluster."
         )
 
-    project_snapshot = plt.imread("pictures/WalkthroughProject02 - read me image.png")
-    st.image(project_snapshot)
+    project_snapshot = plt.imread("pictures/prospect.png")
+    st.image(project_snapshot, width=400)
 
-    st.write(
-        f"* For additional information, please **visit and read** the "
-        f"[Project README file](https://github.com/FernandoRocha88/WalkthroughProject02/blob/main/README.md).")
-    
+   
