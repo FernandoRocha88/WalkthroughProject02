@@ -30,7 +30,7 @@ def page_summary_body():
         f"a non-churnable cluster."
         )
 
-    project_snapshot = plt.imread("pictures/prospect.png")
-    st.image(project_snapshot, width=400)
+    project_snapshot = plt.imread("pictures/requirements.png")
+    st.image(project_snapshot)
 
    
