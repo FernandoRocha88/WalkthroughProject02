@@ -21,4 +21,4 @@ app.add_page("ML: Prospect Tenure", page_predict_tenure_body)
 app.add_page("ML: Cluster Base", page_cluster_body)
 
 # Run the  app
-app.run(app_name= "Prospect 'Churnometer'")
+app.run(app_name= "'Churnometer'")
