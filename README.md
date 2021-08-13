@@ -105,12 +105,12 @@ As a Data Analyst from Code Institute Consulting, you are requested by Telco div
 ### Page 1: Quick project summary
 * Quick project summary
 
-### Page 2: User Inteface
+### Page 2: Customer Base Churn Study
+* It will answer business requirement 1
+
+### Page 3: Prospect Churnometer
 * User Interface with prospect inputs and predictions indicating if the prospect will churn or not, if so when, to which cluster the prospect belongs and an indication on which cluster the prospect belong to.
 * In addition, present cluster profile; so the person who is attending the prospect can suggest a offer that will bring the prospect to a non churnable customer
-
-### Page 3: Customer Base Churn Study
-* It will answer business requirement 1
 
 ### Page 4: Predict Churn
 * Evaluation metrics/performance on ChurnClf
