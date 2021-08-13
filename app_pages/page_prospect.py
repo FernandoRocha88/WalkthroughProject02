@@ -7,8 +7,8 @@ from src.machine_learning.predictive_analysis_ui import (
 														predict_tenure, 
 														predict_cluster)
 
-def page_ui_body():
-	st.write("### User Interface")
+def page_prospect_body():
+	st.write("### Prospect Churnometer Interface")
 	st.write(
 		f"* Please insert prospect information for predictive analysis.\n"
 		f"* Take a look in the main features in the ML pipelines to make sense "
