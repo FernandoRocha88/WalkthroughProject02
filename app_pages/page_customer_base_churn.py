@@ -3,9 +3,9 @@ from src.data_management import load_telco_data
 
 def page_customer_base_churn_body():
     st.write("### Customer Base Churn Study")
-    st.write(
-        f"* As a customer I am interested to understand the patterns from my customer base, "
-        f"so I can better manage churn levels.")
+    st.info(
+        f"* I want to better manager customer churn levels "
+        f"by understanding the patterns from my customer base.")
 
 
     # load data
@@ -42,7 +42,7 @@ def page_customer_base_churn_body():
 
 
     st.success(
-        f"Find below how the insights can be used when predicting prospect that might churn\n\n"
+        f"Find below how the **insights** that can be used when predicting prospect that might churn\n\n"
         f"* If a prospect looks to be churnable, and is not showing openness to our offers, "
         f"we will concede free tech support and online security for 18 months. \n"
         f"* We will offer 15% discount for a year when the prospect switch from "
@@ -79,10 +79,11 @@ def project_hypothesis():
 
 def inspect_data(df):
     st.write(
-        f"For dataset explanation, visit project "
-        f"[repo](https://github.com/FernandoRocha88/WalkthroughProject02/blob/main/README.md)")
-    st.write(f"Dataset shape: {df.shape}")
-    st.write(df)
+        f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns, find below a "
+        f"snapshot and a quick EDA on each variable.")
+    st.write(df.head(3))
+    
+    for col in df.columns: st.write(f"* **{col}**:\n{df[col].unique()}\n")
     
 
 
