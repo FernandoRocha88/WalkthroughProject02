@@ -1,4 +1,5 @@
 ## Dataset Content
+The dataset is sourced from [Kaggle](https://www.kaggle.com/blastchar/telco-customer-churn). 
 Each row represents a customer, each column contains customer attribute. The data set includes information about:
 * Services that each customer has signed up for, like phone, multiple lines, internet, online security, online backup, device protection, tech support, streaming TV and movies
 * Customer information, like how long they’ve been a customer, if they churned their contract type, payment method, paperless billing, monthly charges, and total charges
