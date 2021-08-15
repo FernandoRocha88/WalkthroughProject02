@@ -1,5 +1,0 @@
-Cluster,PaymentMethod,MonthlyCharges,InternetService,DeviceProtection,OnlineSecurity,Churn
-0,"'Credit card (automatic)': 52% , 'Bank transfer (automatic)': 48% ",76 -- 101,"'Fiber optic': 67% , 'DSL': 33% ","'Yes': 64% , 'No': 36% ","'Yes': 51% , 'No': 49% ","'0': 80% , '1': 20% "
-1,"'Electronic check': 86% , 'Mailed check': 14% ",79 -- 98,"'Fiber optic': 89% , 'DSL': 11% ","'No': 58% , 'Yes': 42% ","'No': 73% , 'Yes': 27% ","'0': 53% , '1': 47% "
-2,"'Mailed check': 49% , 'Bank transfer (automatic)': 22% , 'Credit card (automatic)': 22% ",20 -- 21,'No': 100% ,'No internet service': 100% ,'No internet service': 100% ,"'0': 93% , '1': 7% "
-3,"'Mailed check': 35% , 'Electronic check': 30% , 'Bank transfer (automatic)': 21% ",44 -- 58,"'DSL': 96% , 'Fiber optic': 4% ","'No': 77% , 'Yes': 23% ","'No': 68% , 'Yes': 32% ","'0': 73% , '1': 27% "
