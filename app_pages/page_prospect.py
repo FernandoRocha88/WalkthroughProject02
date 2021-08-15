@@ -41,7 +41,7 @@ def page_prospect_body():
 						.columns
 						.to_list()
 						)
-	cluster_profile = pd.read_csv(f"outputs/ml_pipeline/cluster_analysis/{version}/clusters_description.csv")
+	cluster_profile = pd.read_csv(f"outputs/ml_pipeline/cluster_analysis/{version}/clusters_profile.csv")
 
 
 
