@@ -79,9 +79,9 @@ def project_hypothesis():
 
 def inspect_data(df):
     st.write(
-        f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns, find below a "
-        f"snapshot and a quick EDA on each variable.")
-    st.write(df.head(3))
+        f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns, find below the first 10 "
+        f"rows and a quick summary on each variable content.")
+    st.write(df.head(10))
     
     for col in df.columns: st.write(f"* **{col}**:\n{df[col].unique()}\n")
     
