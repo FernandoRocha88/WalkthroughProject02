@@ -28,9 +28,8 @@ def page_predict_tenure_body():
     # load tenure pipeline files
     version = 'v1'
     tenure_pipe = load_pkl_file(f"outputs/ml_pipeline/predict_tenure/{version}/clf_pipeline.pkl")
-    tenure_labels_map = load_pkl_file(f"outputs/ml_pipeline/predict_tenure/{version}/LabelsMap.pkl")
+    tenure_labels_map = load_pkl_file(f"outputs/ml_pipeline/predict_tenure/{version}/labels_map.pkl")
     tenure_feat_importance = plt.imread(f"outputs/ml_pipeline/predict_tenure/{version}/features_importance.png")
-    tenure_labels_map = load_pkl_file(f"outputs/ml_pipeline/predict_tenure/{version}/LabelsMap.pkl")
     X_train = pd.read_csv(f"outputs/ml_pipeline/predict_tenure/{version}/X_train.csv")
     X_test = pd.read_csv(f"outputs/ml_pipeline/predict_tenure/{version}/X_test.csv")
     y_train =  pd.read_csv(f"outputs/ml_pipeline/predict_tenure/{version}/y_train.csv")

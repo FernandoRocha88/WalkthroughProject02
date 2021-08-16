@@ -28,7 +28,7 @@ def page_prospect_body():
 	# load tenure pipeline files
 	version = 'v1'
 	tenure_pipe = load_pkl_file(f"outputs/ml_pipeline/predict_tenure/{version}/clf_pipeline.pkl")
-	tenure_labels_map = load_pkl_file(f"outputs/ml_pipeline/predict_tenure/{version}/LabelsMap.pkl")
+	tenure_labels_map = load_pkl_file(f"outputs/ml_pipeline/predict_tenure/{version}/labels_map.pkl")
 	tenure_features = (pd.read_csv(f"outputs/ml_pipeline/predict_tenure/{version}/X_train.csv")
 					.columns
 					.to_list()
