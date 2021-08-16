@@ -105,6 +105,7 @@ def plot_numerical(df, col, target_var):
 
 def churn_level_per_variable(df_eda):
     target_var = 'Churn'
+    sns.set_style("whitegrid")
 
     for col in df_eda.drop([target_var], axis=1).columns.to_list():
         if df_eda[col].dtype == 'object':
