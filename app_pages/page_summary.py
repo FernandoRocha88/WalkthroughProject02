@@ -27,16 +27,17 @@ def page_summary_body():
     
 
     st.success(
-
         f"The project has 2 business requirements:\n"
-        f"* 1 - Study Customer Base Churn: "
-        f"I want to better manager customer churn levels by understanding the patterns "
-        f"from my customer base.\n"
-        f"* 2 - Predict if a prospect will churn, if so, when? "
-        f"In addition, tell from which group this prospect will belong, and based on that, "
-        f"present potential factors that could mantain/bring the prospect to "
-        f"a non-churnable cluster."
+        f"* 1 - The client wants to better manager customer churn levels by understanding "
+        f"the patterns from customer base.\n"
+        f"* 2 - The client is interested to tell whether or not a given prospect will churn. "
+        f"If so, the client is interested to know when. In addition the client is "
+        f"interested to know from which cluster this prospect will belong in the customer base, "
+        f"and based on that, present potential factors that could mantain and/or bring "
+        f"the prospect to a non-churnable cluster."
         )
+
+        
 
     project_snapshot = plt.imread("pictures/requirements.png")
     st.image(project_snapshot, caption='Representations for Business Requirements 1 and 2, respectively.')
