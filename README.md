@@ -1,5 +1,5 @@
 ## Dataset Content
-The dataset is sourced from [Kaggle](https://www.kaggle.com/blastchar/telco-customer-churn). 
+The dataset is sourced from [Kaggle](https://www.kaggle.com/blastchar/telco-customer-churn). We created then a fictitious user story where predictive analytics can be applied in a real project in the workplace.
 Each row represents a customer, each column contains customer attribute. The data set includes information about:
 * Services that each customer has signed up for, like phone, multiple lines, internet, online security, online backup, device protection, tech support, streaming TV and movies
 * Customer information, like how long they’ve been a customer, if they churned their contract type, payment method, paperless billing, monthly charges, and total charges
@@ -38,10 +38,10 @@ Each row represents a customer, each column contains customer attribute. The dat
 	* This customer, has a tenure level, which is the number of months this person has used our product/service.
 
 ## Business Requirements
-As a Data Analyst from Code Institute Consulting, you are requested by Telco division to provide actionable insights and data driven recommendations to a Telecom corporation. This company has substantial customer base and is interested to manage churn levels and understand how the sales team could better interact with prospects.
+As a Data Analyst from Code Institute Consulting, you are requested by Telco division to provide actionable insights and data driven recommendations to a Telecom corporation. This client has substantial customer base and is interested to manage churn levels and understand how the sales team could better interact with prospects. The data has been shared by the client
 
-* 1 - I want to better manager customer churn levels by understanding the patterns from my customer base.
-* 2 - I am interested to tell whether or not a given prospect will churn. If so, when? In addition I am interested to from which customer group/cluster this prospect will belong, and based on that, present potential factors that could mantain/bring the prospect to a non-churnable cluster
+* 1 - The client wants to better manager customer churn levels by understanding the patterns from customer base.
+* 2 - The client is interested to tell whether or not a given prospect will churn. If so, the client is interested to know when. In addition the client is interested to know from which cluster this prospect will belong in the customer base, and based on that, present potential factors that could mantain and/or bring the prospect to a non-churnable cluster.
 
 
 ## Hypothesis and how to validate?
