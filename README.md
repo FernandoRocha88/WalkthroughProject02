@@ -78,7 +78,8 @@ As a Data Analyst from Code Institute Consulting, you are requested by Telco div
 	* Train data - target: Churn ; features: all other variables, but tenure, total charges and customerID
 
 ### Predict Tenure
-* We want a ML model to predict tenure levels, in months, for a prospect that is expected to churn. It is a supervised model, a uni-dimensional regression model.
+#### Regression Model
+* We want a ML model to predict tenure levels, in months, for a prospect that is expected to churn. The target variable is a discrete number. We consider a **regression model**. It is a supervised model, and uni-dimensional regression model.
 * Our ideal outcome is provide to our sales team a reliable insight on how to onboard customer with a higher sense of loyalty.
 * The model success metrics are
 	* At least 0.7 for R2 score , on train and test set
@@ -91,7 +92,8 @@ As a Data Analyst from Code Institute Consulting, you are requested by Telco div
 
 
 ### Cluster Analysis
-* We want a ML model to cluster similar customer behaviour. It is an unsupervised model
+#### Clustering Model
+* We want a ML model to cluster similar customer behaviour. It is an unsupervised model.
 * Our ideal outcome is provide to our sales team a reliable insight on how to onboard customer with a higher sense of loyalty.
 * The model success metrics are
 	* at least 0.45 for silhoute socre
