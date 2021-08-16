@@ -31,6 +31,12 @@ Each row represents a customer, each column contains customer attribute. The dat
 | Churn            | Inform the customer churned or not                          | Yes or No                                                                            |
 
 
+* **Project Terms & Jargons**
+	* A customer is a person who consumes your service or product.
+	* A prospect is a potential customer.
+	* A churned customer is a user who has stopped using your product or service.
+	* This customer, has a tenure level, which is the number of months this person has used our product/service.
+
 ## Business Requirements
 As a Data Analyst from Code Institute Consulting, you are requested by Telco division to provide actionable insights and data driven recommendations to a Telecom corporation. This company has substantial customer base and is interested to manage churn levels and understand how the sales team could better interact with prospects.
 
