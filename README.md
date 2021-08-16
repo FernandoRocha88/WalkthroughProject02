@@ -63,8 +63,9 @@ As a Data Analyst from Code Institute Consulting, you are requested by Telco div
 
 ## ML Business Case
 
-### ChurnClf
-* We want a ML model to predict if a prospect will churn or not, based on historical data from customer base, which doesn't include tenure and total charges, since these values are zero for a prospect. It is a supervised model, a 2-class, single-label, classification model: 0 (no churn), 1 (yes churn)
+### Predict Churn
+#### Classification Model
+* We want a ML model to predict if a prospect will churn or not, based on historical data from customer base, which doesn't include tenure and total charges, since these values are zero for a prospect. The target variable is categorical and contains 2-classes. We consider a **classification model**, it is a supervised model, a 2-class, single-label, classification model output: 0 (no churn), 1 (yes churn)
 * Our ideal outcome is provide to our sales team a reliable insight on how to onboard customer with a higher sense of loyalty.
 * The model success metrics are
 	* at least 85% Recall for Churn, on train and test set (We don't want to miss a potential churner)
@@ -76,7 +77,7 @@ As a Data Analyst from Code Institute Consulting, you are requested by Telco div
 * The training data to fit the model come from the Telco Customer. This dataset contains about 7 thousand customer records.
 	* Train data - target: Churn ; features: all other variables, but tenure, total charges and customerID
 
-### TenureReg
+### Predict Tenure
 * We want a ML model to predict tenure levels, in months, for a prospect that is expected to churn. It is a supervised model, a uni-dimensional regression model.
 * Our ideal outcome is provide to our sales team a reliable insight on how to onboard customer with a higher sense of loyalty.
 * The model success metrics are
@@ -89,7 +90,7 @@ As a Data Analyst from Code Institute Consulting, you are requested by Telco div
 	* Train data - filter data where Churn == 1, then drop Churn variable. Target: tenure ; features: all other variables, but total charges and customerID
 
 
-### TelcoCluster
+### Cluster Analysis
 * We want a ML model to cluster similar customer behaviour. It is an unsupervised model
 * Our ideal outcome is provide to our sales team a reliable insight on how to onboard customer with a higher sense of loyalty.
 * The model success metrics are
