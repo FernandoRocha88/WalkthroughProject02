@@ -40,7 +40,7 @@ Each row represents a customer, each column contains customer attribute. The dat
 ## Business Requirements
 As a Data Analyst from Code Institute Consulting, you are requested by Telco division to provide actionable insights and data driven recommendations to a Telecom corporation. This client has substantial customer base and is interested to manage churn levels and understand how the sales team could better interact with prospects. The data has been shared by the client
 
-* 1 - The client wants to better manager customer churn levels by understanding the patterns from customer base.
+* 1 - The client is interested to understand the patterns from customer base, so the client can learn the most relevant variables that are correlated to a churned customer.
 * 2 - The client is interested to tell whether or not a given prospect will churn. If so, the client is interested to know when. In addition the client is interested to know from which cluster this prospect will belong in the customer base, and based on that, present potential factors that could mantain and/or bring the prospect to a non-churnable cluster.
 
 
@@ -53,7 +53,7 @@ As a Data Analyst from Code Institute Consulting, you are requested by Telco div
 
 ## Rationale to map the business requirements to the Data Visualizations and ML tasks
 * **Business Requirement 1**: Data Visualization and Correlation study
-	* We will display a DataFrame for all customer base
+	* We will inspect the data related to customer base
 	* We will conduct a correlation study (pearson and spearman) to better understand how the variables are correlated to Churn
 	* We will plot the main variables against Churn to visualize insights.
 
