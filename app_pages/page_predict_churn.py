@@ -7,7 +7,6 @@ from src.machine_learning.evaluate_clf import clf_performance_train_test_set
 
 
 def page_predict_churn_body():
-    st.write("---")
     st.write("### ML Pipeline: Predict Prospect Churn")
 
     

@@ -9,9 +9,16 @@ from src.machine_learning.predictive_analysis_ui import (
 
 def page_prospect_body():
 	st.write("### Prospect Churnometer Interface")
+	st.info(
+		f"* The client is interested to tell whether or not a given prospect will churn. "
+		f"If so, the client is interested to know when. In addition the client is interested "
+		f"to know from which cluster this prospect will belong in the customer base, "
+		f"and based on that, present potential factors that could mantain and/or bring "
+		f"the prospect to a non-churnable cluster."
+	)
 	st.write(
-		f"* Please insert prospect information for predictive analysis.\n"
-		f"* Take a look in the main features in the ML pipelines to make sense "
+		f"* Please insert prospect information for predictive analysis: "
+		f"Take a look in the main features in the ML pipelines to make sense "
 		f"which feature impacts more which ML pipeline.")
 
 	

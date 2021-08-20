@@ -1,11 +1,12 @@
 import streamlit as st
 from src.data_management import load_telco_data
 
-def page_customer_base_churn_body():
-    st.write("### Customer Base Churn Study")
+def page_churned_customer_study_body():
+    st.write("### Churned Customer Study")
     st.info(
-        f"* I want to better manager customer churn levels "
-        f"by understanding the patterns from my customer base.")
+        f"* The client is interested to understand the patterns from customer base, "
+        f"so the client can learn the most relevant variables that are correlated "
+        f"to a churned customer.")
 
 
     # load data
@@ -34,24 +35,11 @@ def page_customer_base_churn_body():
         f"* A churned customer typically doesn't have tech support. \n"
         f"* A churned customer doesn't have online security. \n"
         f"* A churned customer typically has low tenure levels. \n"
-        f"The insights above will be used as reference additional investigations. "
-        f"Like: why high churn levels in fiber optic? "
-        f"But for the present project, it answers business requeriment 1."
     )
 
 
-
-    st.success(
-        f"Find below how the **insights** that can be used when predicting prospect that might churn\n\n"
-        f"* If a prospect looks to be churnable, and is not showing openness to our offers, "
-        f"we will concede free tech support and online security for 18 months. \n"
-        f"* We will offer 15% discount for a year when the prospect switch from "
-        f"month to month to year plan. \n"
-        f"* We will give 5% discount when the prospect switch to an automated payment method.")
-
     df_eda = df.filter(vars_to_study + ['Churn'])
     # Individual plots per variable
-    # st.set_option('deprecation.showPyplotGlobalUse', False)
     if st.checkbox("Churn Levels per Variable"):
         churn_level_per_variable(df_eda)
         
@@ -61,26 +49,14 @@ def page_customer_base_churn_body():
             f"* Information in yellow indicates the profile from a churned customer")
         parallel_plot_churn(df_eda)
 
-    st.write("---")
-    if st.checkbox("Project Hypothesis and Validation"):
-        project_hypothesis()
-        
 
-def project_hypothesis():
-    st.success(
-        f"* We suspect customers are churning with low tenure levels: Correct, "
-        f"the correlation study supports that. \n"
-        f"* A customer survey showed Fiber Optic is very appreciated by our customers: "
-        f"a churned user typically has Fiber Optic. The insight will be taken to the "
-        f"survey team for further discussions and investigations."
-    )
-        
+
 
 
 def inspect_data(df):
     st.write(
         f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns, find below the first 10 "
-        f"rows and a quick summary on each variable content.")
+        f"rows and a quick inspection on each variable content.")
     st.write(df.head(10))
     
     for col in df.columns: st.write(f"* **{col}**:\n{df[col].unique()}\n")

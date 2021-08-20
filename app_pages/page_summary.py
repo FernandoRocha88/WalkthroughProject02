@@ -28,8 +28,9 @@ def page_summary_body():
 
     st.success(
         f"The project has 2 business requirements:\n"
-        f"* 1 - The client wants to better manager customer churn levels by understanding "
-        f"the patterns from customer base.\n"
+        f"* 1 - The client is interested to understand the patterns from customer base, "
+        f"so the client can learn the most relevant variables that are correlated to a "
+        f"churned customer.\n"
         f"* 2 - The client is interested to tell whether or not a given prospect will churn. "
         f"If so, the client is interested to know when. In addition the client is "
         f"interested to know from which cluster this prospect will belong in the customer base, "
