@@ -11,7 +11,7 @@ from app_pages.page_predict_tenure import page_predict_tenure_body
 from app_pages.page_cluster import page_cluster_body
 
 # Create an instance of the app 
-app = MultiPage() 
+app = MultiPage(app_name= "Churnometer")
 
 # Add your app pages here using .add_page()
 app.add_page("Quick Project Summary", page_summary_body)
@@ -23,4 +23,4 @@ app.add_page("ML: Prospect Tenure", page_predict_tenure_body)
 app.add_page("ML: Cluster Base", page_cluster_body)
 
 # Run the  app
-app.run(app_name= "Churnometer")
+app.run()
