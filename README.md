@@ -114,6 +114,9 @@ As a Data Analyst from Code Institute Consulting, you are requested by Telco div
 
 ### Page 1: Quick project summary
 * Quick project summary
+	* Project Terms & Jargons
+	* Describe Project Dataset
+	* State Business Requirements
 
 ### Page 2: Customer Base Churn Study
 * It will answer business requirement 1
