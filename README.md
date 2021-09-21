@@ -125,15 +125,18 @@ As a Data Analyst from Code Institute Consulting, you are requested by Telco div
 * User Interface with prospect inputs and predictions indicating if the prospect will churn or not, if so when, to which cluster the prospect belongs and an indication on which cluster the prospect belong to.
 * In addition, present cluster profile; so the person who is attending the prospect can suggest a offer that will bring the prospect to a non churnable customer
 
-### Page 4: Predict Churn
+### Page 4: Project Hypothesis and Validation
+* For each project hypothesis, describe the conclusion on how you validated
+
+### Page 5: Predict Churn
 * Evaluation metrics/performance on ChurnClf
   * For both train and test set: Confusion Matrix and Classification Report
 
-### Page 5: Predict Tenure
+### Page 6: Predict Tenure
 * Evaluation metrics/performance on TenureReg
   * For both train and test set: R2, RMSE, MSE, MAE
 
-### Page 6: Cluster Analysis
+### Page 7: Cluster Analysis
 * Evaluation metrics/performance on TelcoCluster:  Silhouete score
 * Clusters distribution across Churn levels
 * Relative Percentage (%) of Churn in each cluster
