@@ -6,7 +6,7 @@ Each row represents a customer, each column contains customer attribute. The dat
 * Customer profile, like gender, if they have partners and dependents
 
 
-| Heading          | Meaning                                                     | Units                                                                                |
+| Variable         | Meaning                                                     | Units                                                                                |
 |------------------|-------------------------------------------------------------|--------------------------------------------------------------------------------------|
 | customerID       | Customer identification                                     | Number and Letters code that form a unique identifier to a customer                  |
 | gender           | Inform customer gender                                      | Female or Male                                                                       |
